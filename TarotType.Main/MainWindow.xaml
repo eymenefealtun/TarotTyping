@@ -14,14 +14,15 @@
     <Grid>
 
 
-
+        <!--#e28743-->
+        <!--#76b5c5-->
         <StackPanel VerticalAlignment="Center"
                     HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal"
                         Width="800"
                         Height="60"
                         x:Name="stckPanel1"
-                        Background="#e28743">
+                        Background="White">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Label}">
                         <Setter Property="Margin"
@@ -82,7 +83,7 @@
                         Width="800"
                         Height="60"
                         x:Name="stckPanel2"
-                        Background="#76b5c5">
+                        Background="White">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Label}">
                         <Setter Property="Margin"

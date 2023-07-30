@@ -4,10 +4,12 @@
            TargetType="{x:Type Label}"
            x:Key="MainTextBlockTheme">
         <Setter Property="FontSize"
-                Value="20" />
+                Value="30" />
         <Setter Property="Margin"
                 Value="8,0,0,0" />
-
+        <Setter Property="Width"
+                Value="Auto" />
+        
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Label">
@@ -23,11 +25,11 @@
                                         FontSize="{TemplateBinding FontSize}"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
-                                        Foreground="{TemplateBinding Foreground}"       
+                                        Foreground="{TemplateBinding Foreground}"
                                         x:Name="mainTextBlock" />
 
 
-                
+
                         </Grid>
 
                     </Border>
