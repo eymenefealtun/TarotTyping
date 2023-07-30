@@ -80,7 +80,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
-                        Width="800"
+                        Width="{Binding Width, ElementName=stckPanel1}"
                         Height="60"
                         x:Name="stckPanel2"
                         Background="White">
@@ -93,21 +93,41 @@
 
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Grid Width="800"
-                      Margin="0,50,0,0">
+
+                <Grid Width="{Binding Width, ElementName=stckPanel1}"
+                      Margin="0,50,0,0"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center">
+
+
 
                     <TextBox x:Name="tboxWrite"
                              Height="50"
                              Width="300"
                              VerticalContentAlignment="Center"
                              HorizontalAlignment="Center"
-                             FontSize="20" 
+                             FontSize="20"
                              TextChanged="tboxWrite_TextChanged"
-                             PreviewKeyDown="tboxWrite_PreviewKeyDown"/>
+                             Style="{StaticResource MainTextBoxTheme}"
+                             PreviewKeyDown="tboxWrite_PreviewKeyDown" />
+
+                    <Label x:Name="lblTimer"
+                           VerticalAlignment="Center"
+                           Content="60"
+                           Width="50"
+                           Height="40"
+                           Style="{StaticResource TimerTextBlockTheme}"
+                           Background="#3c4d5c"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           Margin="380,0,0,0"/>
                     <Button Click="Button_Click"
                             Width="50"
                             Height="50"
-                            HorizontalAlignment="Right" />
+                            HorizontalAlignment="Center"
+                            Margin="550,0,0,0" />
+
+
                 </Grid>
 
             </StackPanel>

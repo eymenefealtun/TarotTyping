@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Threading;
 using Utilities;
 
 namespace TarotType.Main
@@ -14,22 +15,47 @@ namespace TarotType.Main
         List<Label> _words2;
         int _numberOfWrongWords;
         int _numberOfTrueWords;
+        int _currentWord1Index = 0;
+        string _targetText;
+        string _currentTextOfTextBox;
+        bool _isTextBoxChangedCanFire;
+        DispatcherTimer _dispatcherTimer;
 
         public MainWindow()
         {
             InitializeComponent();
             _words1 = new List<Label>();
             _words2 = new List<Label>();
-        }
-        int _currentWord1Index = 0;
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+
+
+            _dispatcherTimer = new DispatcherTimer();
+            _dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            _dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+
             RefreshGame();
         }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            _dispatcherTimer.Stop();
 
-        string _targetText;
-        string _currentTextOfTextBox;
-        bool _isTextBoxChangedCanFire;
+            _dispatcherTimer.Start();
+        }
+
+        private int _second = 60;
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            lblTimer.Content = _second.ToString();
+            _second--;
+            lblTimer.Content = _second.ToString();
+
+            if (_second == 0)
+            {
+                _dispatcherTimer.Stop();
+                lblTimer.Content = "60";
+            }
+
+        }
+
         private void tboxWrite_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -145,22 +171,6 @@ namespace TarotType.Main
             lbl.Background = Brushes.LightGray;
         }
 
-
-        private void RefreshGame()
-        {
-
-            _numberOfTrueWords = 0;
-            _numberOfWrongWords = 0;
-            _isTextBoxChangedCanFire = true;
-            _currentWord1Index = 0;
-            _targetText = string.Empty;
-            _currentTextOfTextBox = string.Empty;
-            tboxWrite.Text = String.Empty;
-            RefreshStack(stckPanel1, _words1);
-            RefreshStack(stckPanel2, _words2);
-
-        }
-
         private void GetAnotherStack(List<Label> words2)
         {
             stckPanel1.Children.Clear();
@@ -173,13 +183,28 @@ namespace TarotType.Main
                 _words1.Add(_words2[i]);
             }
 
-
-
-
-
             tboxWrite.Text = String.Empty;
             RefreshStack(stckPanel2, _words2);
         }
+
+        private void RefreshGame()
+        {
+
+            _numberOfTrueWords = 0;
+            _numberOfWrongWords = 0;
+            _currentWord1Index = 0;
+
+            _isTextBoxChangedCanFire = true;
+
+            _targetText = string.Empty;
+            _currentTextOfTextBox = string.Empty;
+            tboxWrite.Text = string.Empty;
+
+            RefreshStack(stckPanel1, _words1);
+            RefreshStack(stckPanel2, _words2);
+
+        }
+
 
         private void RefreshStack(StackPanel panel, List<Label> labels)
         {
