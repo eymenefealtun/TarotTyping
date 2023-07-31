@@ -1,0 +1,53 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style BasedOn="{StaticResource {x:Type Button}}"
+           TargetType="{x:Type Button}"
+           x:Key="ContinueButtonTheme">
+        <Setter Property="Cursor"
+                Value="Hand" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            Height="{TemplateBinding Height}"
+                            Width="{TemplateBinding Width}"
+                            CornerRadius="0,0,20,20"
+                            x:Name="mainBorder">
+
+                        <Grid VerticalAlignment="Stretch"
+                              HorizontalAlignment="Stretch">
+
+                            <TextBlock Text="Continue"
+                                       FontSize="30"
+                                       FontFamily="/Fonts/#Poppins"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Foreground="#154989"
+                                       x:Name="mainTextBlock" />
+
+                        </Grid>
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter Property="Background"
+                                    TargetName="mainBorder"
+                                    Value="#d3a46a" />
+                            <Setter Property="Foreground"
+                                    Value="#446da1"
+                                    TargetName="mainTextBlock" />
+                            <Setter Property="FontSize"
+                                    TargetName="mainTextBlock"
+                                    Value="30.5" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+
+    </Style>
+</ResourceDictionary>

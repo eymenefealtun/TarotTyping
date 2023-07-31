@@ -121,7 +121,7 @@
                                              BorderThickness="0"
                                              PreviewKeyDown="tboxWrite_PreviewKeyDown" />
                                 </Border>
-                                
+
 
                                 <Label x:Name="lblTimer"
                                        VerticalAlignment="Center"

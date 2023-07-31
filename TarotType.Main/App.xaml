@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="Themes/TextBlocks/TimerTextBlockTheme.xaml" />
                 <ResourceDictionary Source="Themes/TextBoxes/MainTextBoxTheme.xaml" />
                 <ResourceDictionary Source="Themes/Buttons/RefreshButtonTheme.xaml" />
+                <ResourceDictionary Source="Themes/Buttons/ContinueButtonTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

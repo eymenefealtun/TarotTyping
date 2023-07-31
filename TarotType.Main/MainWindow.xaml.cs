@@ -19,6 +19,9 @@ namespace TarotType.Main
         int _numberOfWrongWords;
         int _numberOfTrueWords;
         int _numberOfKeyStroke;
+        int _numberOfTrueKeyStroke;
+        int _numberOfFalseKeyStroke;
+
         int _currentWord1Index = 0;
         string _targetText;
         string _currentTextOfTextBox;
@@ -38,8 +41,9 @@ namespace TarotType.Main
             _dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             _dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
 
+
             RefreshGame();
-            FocusManager.SetFocusedElement(this, tboxWrite);
+
         }
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
@@ -54,10 +58,10 @@ namespace TarotType.Main
 
             if (_second == 0)
             {
-                //MessageBox.Show($"Your WPM is {_numberOfTrueWords}\n Correct words {_numberOfTrueWords}\n Wrong words {_numberOfWrongWords}\n Keystrokes {_numberOfKeyStroke} ", "Tarot Type", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                ResultWindow resultWindow = new ResultWindow(_numberOfTrueWords,_numberOfWrongWords,_numberOfTrueWords,_numberOfKeyStroke);
+                tboxWrite.IsEnabled = false;
+                ResultWindow resultWindow = new ResultWindow(_numberOfTrueWords, _numberOfWrongWords, _numberOfTrueWords, _numberOfKeyStroke,_numberOfTrueKeyStroke,_numberOfFalseKeyStroke);
                 resultWindow.ShowDialog();
+                tboxWrite.IsEnabled = true;
 
                 RefreshGame();
             }
@@ -66,21 +70,25 @@ namespace TarotType.Main
 
         private void tboxWrite_TextChanged(object sender, TextChangedEventArgs e)
         {
+            _currentTextOfTextBox = tboxWrite.Text;
+
+
             if (!_isStartedBefore && tboxWrite.Text != " " && tboxWrite.Text != "")
             {
                 _isStartedBefore = true;
                 _dispatcherTimer.Start();
                 return;
             }
+
             else if (tboxWrite.Text != string.Empty && !_isTextBoxChangedCanFire || tboxWrite.Text == " ")
             {
                 tboxWrite.Text = String.Empty;
                 return;
             }
+            _numberOfKeyStroke++;
 
-            _currentTextOfTextBox = tboxWrite.Text;
 
-            _targetText = _words1[_currentWord1Index].Content.ToString();
+
 
             int currentLegth = _currentTextOfTextBox.Length;
 
@@ -98,9 +106,15 @@ namespace TarotType.Main
 
         }
 
-        private void tboxWrite_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void tboxWrite_PreviewKeyDown(object sender, KeyEventArgs e) //when text of tboxWrite changed PreviewKeyDown event get fires first
         {
-            _numberOfKeyStroke++;
+            _targetText = _words1[_currentWord1Index].Content.ToString();
+
+            if (e.Key == Key.Escape)
+            {
+                RefreshGame();
+                return;
+            }
 
             if (e.Key == Key.Space && tboxWrite.Text != string.Empty)
             {
@@ -151,11 +165,13 @@ namespace TarotType.Main
         private void CurrentTextWrong(Label lbl)
         {
             lbl.Background = Brushes.Red;
+            _numberOfFalseKeyStroke++;
         }
 
         private void CurrentTextTrue(Label lbl)
         {
             lbl.Background = Brushes.LightGray;
+            _numberOfTrueKeyStroke++;
         }
 
         private void GetAnotherStack(List<Label> words2)
@@ -176,6 +192,9 @@ namespace TarotType.Main
 
         private void RefreshGame()
         {
+            tboxWrite.Focus();
+
+
             _dispatcherTimer.Stop();
             lblTimer.Content = "60";
             _second = 60;
@@ -184,6 +203,8 @@ namespace TarotType.Main
             _numberOfWrongWords = 0;
             _currentWord1Index = 0;
             _numberOfKeyStroke = 0;
+            _numberOfTrueKeyStroke = 0;
+            _numberOfFalseKeyStroke = 0;
             _isTextBoxChangedCanFire = true;
             _isStartedBefore = false;
 
@@ -194,6 +215,7 @@ namespace TarotType.Main
 
             RefreshStack(stckPanel1, _words1);
             RefreshStack(stckPanel2, _words2);
+
 
         }
 
@@ -240,6 +262,7 @@ namespace TarotType.Main
 
             }
         }
+
 
     }
 
