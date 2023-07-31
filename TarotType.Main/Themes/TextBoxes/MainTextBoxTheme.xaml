@@ -2,6 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style TargetType="{x:Type TextBox}"
            x:Key="MainTextBoxTheme">
+
+        
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox }">
@@ -25,6 +27,7 @@
                                             Mode=TwoWay,
                                             UpdateSourceTrigger=PropertyChanged}"
                                          BorderThickness="0"
+                                         FocusVisualStyle="{TemplateBinding FocusVisualStyle}"
                                          Background="Transparent"
                                          Foreground="Black"
                                          FontSize="{TemplateBinding FontSize}"
@@ -33,13 +36,14 @@
                                          HorizontalContentAlignment="Left"
                                          Margin="1"
                                          VerticalAlignment="Center"
-                                         FontFamily="/Fonts/#Poppins" />
+                                         FontFamily="/Fonts/#Poppins"
+                                         x:Name="mainTextBox"/>
                             </Grid>
                         </Border>
                     </Grid>
+          
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-
     </Style>
 </ResourceDictionary>

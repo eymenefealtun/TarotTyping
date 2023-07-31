@@ -11,31 +11,31 @@
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
         Background="#eeeee4">
-    <Grid>
 
+    <Grid x:Name="mainGrid">
 
-        <!--#e28743-->
-        <!--#76b5c5-->
-        <StackPanel VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
-            <StackPanel Orientation="Horizontal"
-                        Width="800"
-                        Height="60"
-                        x:Name="stckPanel1"
-                        Background="White">
-                <StackPanel.Resources>
-                    <Style TargetType="{x:Type Label}">
-                        <Setter Property="Margin"
-                                Value="10,0,0,0" />
-                    </Style>
-                </StackPanel.Resources>
-                <!--#region trial -->
-                <!--<TextBlock 
+        <Grid>
+
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal"
+                            Width="800"
+                            Height="60"
+                            x:Name="stckPanel1"
+                            Background="White">
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type Label}">
+                            <Setter Property="Margin"
+                                    Value="10,0,0,0" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <!--#region trial -->
+                    <!--<TextBlock 
                        FontFamily="/Fonts/#Poppins"
                        FontSize="20"
                        VerticalAlignment="Center"
                        Text="dasdas asdasd dasdas asdasd dasdas"/>-->
-                <!--<TextBlock Height="50"
+                    <!--<TextBlock Height="50"
                        Text="hello"
                        FontFamily="/Fonts/#Poppins"
                        FontSize="20" />
@@ -73,67 +73,87 @@
                        FontSize="20" />-->
 
 
-                <!--#endregion-->
+                    <!--#endregion-->
 
-            </StackPanel>
+                </StackPanel>
 
-            <StackPanel VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        Orientation="Horizontal"
-                        Width="{Binding Width, ElementName=stckPanel1}"
-                        Height="60"
-                        x:Name="stckPanel2"
-                        Background="White">
-                <StackPanel.Resources>
-                    <Style TargetType="{x:Type Label}">
-                        <Setter Property="Margin"
-                                Value="10,0,0,0" />
-                    </Style>
-                </StackPanel.Resources>
-
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-
-                <Grid Width="{Binding Width, ElementName=stckPanel1}"
-                      Margin="0,50,0,0"
-                      HorizontalAlignment="Center"
-                      VerticalAlignment="Center">
-
-
-
-                    <TextBox x:Name="tboxWrite"
-                             Height="50"
-                             Width="300"
-                             VerticalContentAlignment="Center"
-                             HorizontalAlignment="Center"
-                             FontSize="20"
-                             TextChanged="tboxWrite_TextChanged"
-                             Style="{StaticResource MainTextBoxTheme}"
-                             PreviewKeyDown="tboxWrite_PreviewKeyDown" />
-
-                    <Label x:Name="lblTimer"
-                           VerticalAlignment="Center"
-                           Content="60"
-                           Width="50"
-                           Height="40"
-                           Style="{StaticResource TimerTextBlockTheme}"
-                           Background="#3c4d5c"
-                           Foreground="White"
-                           HorizontalAlignment="Center"
-                           Margin="380,0,0,0"/>
-                    <Button Click="Button_Click"
-                            Width="50"
-                            Height="50"
+                <StackPanel VerticalAlignment="Center"
                             HorizontalAlignment="Center"
-                            Margin="550,0,0,0" />
+                            Orientation="Horizontal"
+                            Width="{Binding Width, ElementName=stckPanel1}"
+                            Height="60"
+                            x:Name="stckPanel2"
+                            Background="White">
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type Label}">
+                            <Setter Property="Margin"
+                                    Value="10,0,0,0" />
+                        </Style>
+                    </StackPanel.Resources>
 
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
 
-                </Grid>
+                    <Grid Width="{Binding Width, ElementName=stckPanel1}"
+                          Margin="0,50,0,0"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="550" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="1">
+
+                            <StackPanel Orientation="Horizontal">
+                                <Border Background="White"
+                                        Height="53"
+                                        Width="303"
+                                        CornerRadius="5">
+                                    <TextBox x:Name="tboxWrite"
+                                             Height="50"
+                                             Width="300"
+                                             VerticalContentAlignment="Center"
+                                             FontSize="20"
+                                             TextChanged="tboxWrite_TextChanged"
+                                             BorderBrush="Transparent"
+                                             BorderThickness="0"
+                                             PreviewKeyDown="tboxWrite_PreviewKeyDown" />
+                                </Border>
+                                
+
+                                <Label x:Name="lblTimer"
+                                       VerticalAlignment="Center"
+                                       Content="60"
+                                       Width="50"
+                                       Height="40"
+                                       Style="{StaticResource TimerTextBlockTheme}"
+                                       Background="#3c4d5c"
+                                       Foreground="White"
+                                       Margin="20,0,0,0" />
+
+                                <Button Click="btnRefresh_Click"
+                                        Width="50"
+                                        Height="40"
+                                        x:Name="btnRefresh"
+                                        Margin="20,0,0,0"
+                                        Background="#428bca"
+                                        Foreground="White"
+                                        Style="{StaticResource RefreshButtonTheme}" />
+
+                            </StackPanel>
+
+                        </Grid>
+
+                    </Grid>
+
+                </StackPanel>
 
             </StackPanel>
 
-        </StackPanel>
 
-
+        </Grid>
     </Grid>
+
 </Window>

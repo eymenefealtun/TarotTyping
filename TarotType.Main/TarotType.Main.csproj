@@ -19,8 +19,4 @@
     <Resource Include="Fonts\Poppins-Regular.ttf" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Themes\Button\" />
-  </ItemGroup>
-
 </Project>

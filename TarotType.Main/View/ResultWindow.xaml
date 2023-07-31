@@ -1,0 +1,50 @@
+﻿<Window x:Class="TarotType.Main.View.ResultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TarotType.Main.View"
+        mc:Ignorable="d"
+        Height="300"
+        Width="450"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"            
+        ResizeMode="NoResize"
+        Title="ResultWindow">
+
+    <Border Background="#6aa3b1"
+            CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition  Width="100" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Width="150"
+                        HorizontalAlignment="Left">
+                <TextBlock  x:Name="tBlockWpm"
+                            Text="Speed:"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            FontSize="40"
+                            Foreground="White"
+                            FontFamily="/Fonts/#Poppins"
+                            Margin="10,40,0,0" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical"
+                        Width="200"
+                        HorizontalAlignment="Right">
+                <TextBlock  x:Name="tBlockWpmResult"
+                            Text="352 WPM"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            FontSize="40"
+                            Foreground="DarkGreen"
+                            FontFamily="/Fonts/#Poppins"
+                            Margin="10,40,0,0" />
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
