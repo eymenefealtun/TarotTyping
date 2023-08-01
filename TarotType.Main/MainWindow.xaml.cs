@@ -1,12 +1,20 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Shapes;
 using System.Windows.Threading;
 using TarotType.Main.View;
 using Utilities;
+using Path = System.IO.Path;
 
 namespace TarotType.Main
 {
@@ -30,6 +38,8 @@ namespace TarotType.Main
         bool _isTextBoxChangedCanFire;
         private bool _isStartedBefore;
 
+        string[] _sourceWords;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -42,7 +52,11 @@ namespace TarotType.Main
             _dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
 
 
+
+
+            _sourceWords = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Words\300.000-Words-WithOnlyComma")).Split(',').ToArray();
             RefreshGame();
+
 
         }
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
@@ -59,7 +73,7 @@ namespace TarotType.Main
             if (_second == 0)
             {
                 tboxWrite.IsEnabled = false;
-                ResultWindow resultWindow = new ResultWindow(_numberOfTrueWords, _numberOfWrongWords, _numberOfTrueWords, _numberOfKeyStroke,_numberOfTrueKeyStroke,_numberOfFalseKeyStroke);
+                ResultWindow resultWindow = new ResultWindow(_numberOfTrueWords, _numberOfWrongWords, _numberOfTrueWords, _numberOfKeyStroke, _numberOfTrueKeyStroke, _numberOfFalseKeyStroke);
                 resultWindow.ShowDialog();
                 tboxWrite.IsEnabled = true;
 
@@ -85,10 +99,8 @@ namespace TarotType.Main
                 tboxWrite.Text = String.Empty;
                 return;
             }
+
             _numberOfKeyStroke++;
-
-
-
 
             int currentLegth = _currentTextOfTextBox.Length;
 
@@ -225,7 +237,7 @@ namespace TarotType.Main
             panel.Children.Clear();
             labels.Clear();
 
-            string[] array = WordManager.GetRandomWord(20);
+            string[] array = WordManager.GetRandomWord(20, _sourceWords);
 
             int currentLength = 0;
 
@@ -233,25 +245,18 @@ namespace TarotType.Main
             {
 
                 Label lbl = new Label();
-                if (i == 0 && labels == _words1)
-                {
-                    lbl.Content = array[i];
-                    lbl.Background = Brushes.LightGray;
-                    lbl.Style = FindResource("MainTextBlockTheme") as Style;
 
-                }
-                else
-                {
-                    lbl.Content = array[i];
-                    lbl.Background = Brushes.Transparent;
-                    lbl.Style = (Style)FindResource("MainTextBlockTheme");
-                }
+                lbl.Background = i == 0 && labels == _words1 ? Brushes.LightGray : Brushes.Transparent; //First word set to Light Gray
+                lbl.Content = array[i];
+                lbl.Style = (Style)FindResource("MainTextBlockTheme");
 
-
+                //Calculations in order not to break the size limit of stack panel.
 
                 lbl.Measure(new Size(Double.PositiveInfinity, Double.PositiveInfinity));
                 lbl.Arrange(new Rect(lbl.DesiredSize));
-                currentLength += (Convert.ToInt32(lbl.ActualWidth) + 10); //this ten comes from margin of stackPanel
+                currentLength += (Convert.ToInt32(lbl.ActualWidth) + (int)lbl.Margin.Left);
+
+                //If total length of the words exceeds the limit we break.
 
                 if (currentLength > stckPanel1.Width)
                     break;
@@ -260,6 +265,30 @@ namespace TarotType.Main
                 panel.Children.Insert(i, lbl);
 
 
+            }
+        }
+
+        string _currentTheme;
+        private void SetThemeAccordingtoStorage()
+        {
+            using (StreamReader reader = new StreamReader(@"Settings\PreferenceStorage.txt"))
+            {
+                _currentTheme = reader.ReadLine();
+            }
+        }
+
+        private void btnTheme_Click(object sender, RoutedEventArgs e)
+        {
+        
+            if (btnTheme.IsChecked == false)
+            {
+                var a = (SolidColorBrush)new BrushConverter().ConvertFrom("#1e1e1e");
+                this.Background = a;
+            }
+            else
+            {
+                var a = (SolidColorBrush)new BrushConverter().ConvertFrom("#eeeee4");
+                this.Background = a;
             }
         }
 

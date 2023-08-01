@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -16,7 +17,12 @@ namespace TarotType.Main.View
 
         public ResultWindow(int wpm, int numberOfWrongWords, int numberOfTrueWords, int numberOfKeyStrokes, int numberOfTrueKeyStroke, int numberOfFalseKeyStroke)
         {
+
             InitializeComponent();
+
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            Owner = Application.Current.MainWindow;
+
             _wpm = wpm;
             _numberOfWrongWords = numberOfWrongWords;
             _numberOfTrueWords = numberOfTrueWords;
@@ -25,6 +31,7 @@ namespace TarotType.Main.View
             _numberOfTrueKeyStroke = numberOfTrueKeyStroke;
 
 
+            #region tBlockKeyStrokeResult
             Run run = new Run("( ");
             run.Foreground = Brushes.Black;
             tBlockKeyStrokeResult.Inlines.Add(run);
@@ -48,15 +55,16 @@ namespace TarotType.Main.View
             run = new Run(" " + _numberOfKeyStrokes.ToString());
             run.Foreground = Brushes.Black;
             tBlockKeyStrokeResult.Inlines.Add(run);
-
-            //tBlockKeyStrokeResult.Text = $"" + _numberOfKeyStrokes.ToString();
+            #endregion
 
 
             int wpmResult = ((_numberOfKeyStrokes / 5) - _numberOfWrongWords) / 1;
 
             tBlockWpmResult.Text = wpmResult + " WPM";
 
-            //double accurayResult = 0;
+            double accurayResult = 100 * ((double)(((double)_numberOfKeyStrokes) - ((double)_numberOfWrongWords * 5)) / ((double)_numberOfKeyStrokes + (double)_numberOfFalseKeyStroke));
+            tBlockAccuracyResult.Text = String.Format("{0:0.00}", accurayResult) + "%";
+
             tBlockFalseWordsResult.Text = _numberOfWrongWords.ToString();
             tBlockTrueWordsResult.Text = _numberOfTrueWords.ToString();
         }

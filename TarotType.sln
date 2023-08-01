@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33712.159
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFormatting", "WordFormatting\WordFormatting.csproj", "{CBF30C32-CD76-4DE7-AE10-1032A5350046}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utilities", "Utilities\Utilities.csproj", "{033DFFC0-8D6B-4DD6-BC2D-B39DBD2AF56C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{E6F25F48-F708-4C27-BD35-30ECD85A2E61}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TarotType.Main", "TarotType.Main\TarotType.Main.csproj", "{5E9B52A7-4812-4493-ACF0-92BA57B20265}"
 EndProject
@@ -17,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CBF30C32-CD76-4DE7-AE10-1032A5350046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CBF30C32-CD76-4DE7-AE10-1032A5350046}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CBF30C32-CD76-4DE7-AE10-1032A5350046}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CBF30C32-CD76-4DE7-AE10-1032A5350046}.Release|Any CPU.Build.0 = Release|Any CPU
 		{033DFFC0-8D6B-4DD6-BC2D-B39DBD2AF56C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{033DFFC0-8D6B-4DD6-BC2D-B39DBD2AF56C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{033DFFC0-8D6B-4DD6-BC2D-B39DBD2AF56C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -32,9 +24,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{CBF30C32-CD76-4DE7-AE10-1032A5350046} = {E6F25F48-F708-4C27-BD35-30ECD85A2E61}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1D28BC56-B520-4959-BB79-D4402688753D}

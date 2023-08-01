@@ -19,4 +19,10 @@
     <Resource Include="Fonts\Poppins-Regular.ttf" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Settings\TrialTheme.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

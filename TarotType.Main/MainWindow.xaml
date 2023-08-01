@@ -16,6 +16,18 @@
 
         <Grid>
 
+
+
+            <ToggleButton x:Name="btnTheme"
+                          Height="40"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Left"
+                          Margin="5,5,0,0"
+                          Click="btnTheme_Click"
+                          IsChecked="True"
+                          Style="{StaticResource ChangeThemeToggleButtonTheme}">
+
+            </ToggleButton>
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal"
@@ -107,18 +119,20 @@
                         <Grid Grid.Column="1">
 
                             <StackPanel Orientation="Horizontal">
-                                <Border Background="White"
-                                        Height="53"
+                                <Border Height="53"
                                         Width="303"
-                                        CornerRadius="5">
+                                        CornerRadius="5"
+                                        Background="LightGray"
+                                        x:Name="borderOfWriteBox">
                                     <TextBox x:Name="tboxWrite"
                                              Height="50"
                                              Width="300"
                                              VerticalContentAlignment="Center"
-                                             FontSize="20"
+                                             FontSize="25"
                                              TextChanged="tboxWrite_TextChanged"
                                              BorderBrush="Transparent"
                                              BorderThickness="0"
+                                             Background="LightGray"
                                              PreviewKeyDown="tboxWrite_PreviewKeyDown" />
                                 </Border>
 

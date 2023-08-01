@@ -10,103 +10,132 @@
         Background="Transparent"
         AllowsTransparency="True"
         WindowStyle="None"
-        WindowStartupLocation="CenterScreen"
         WindowState="Normal"
         ResizeMode="NoResize"
         Title="ResultWindow"
         PreviewKeyDown="Window_PreviewKeyDown">
 
     <Border Background="#6aa3b1"
-            CornerRadius="20"
-           >
+            CornerRadius="20">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="350"/>
-                <ColumnDefinition  Width="100" />
-            </Grid.ColumnDefinitions>
-            <StackPanel Width="150"
-                        HorizontalAlignment="Left"
-                        Height="200"
-                        VerticalAlignment="Top">
-                <TextBlock  x:Name="tBlockWpm"
-                            Text="Speed:"
-                            VerticalAlignment="Center"
-                            HorizontalAlignment="Left"
-                            FontSize="40"
-                            Foreground="White"
-                            FontFamily="/Fonts/#Poppins"
-                            Margin="10,20,0,0" />
-                <TextBlock  x:Name="tBlockKeyStroke"
-                            Text="Keystrokes"
-                            VerticalAlignment="Center"
-                            HorizontalAlignment="Left"
-                            FontSize="20"
-                            Foreground="White"
-                            FontFamily="/Fonts/#Poppins"
-                            Margin="10,10,0,0" />
+       
+            <StackPanel Orientation="Horizontal"
+                        Width="450">
 
-                <TextBlock  x:Name="tBlockTrueWords"
-                            Text="Correct words"
-                            VerticalAlignment="Center"
+                <StackPanel Width="150"
                             HorizontalAlignment="Left"
-                            FontSize="20"
-                            Foreground="White"
-                            FontFamily="/Fonts/#Poppins"
-                            Margin="10,10,0,0" />
+                            Height="200"
+                            VerticalAlignment="Top">
+                    <TextBlock  x:Name="tBlockWpm"
+                                Text="Speed:"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                FontSize="40"
+                                Foreground="White"
+                                FontFamily="/Fonts/#Poppins"
+                                Margin="10,20,0,0" />
+                    <TextBlock  x:Name="tBlockKeyStroke"
+                                Text="Keystrokes"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                FontSize="20"
+                                Foreground="White"
+                                FontFamily="/Fonts/#Poppins"
+                                Margin="10,10,0,0" />
 
-                <TextBlock  x:Name="tBlockFalseWords"
-                            Text="Wrong words"
-                            VerticalAlignment="Center"
-                            HorizontalAlignment="Left"
-                            FontSize="20"
-                            Foreground="White"
-                            FontFamily="/Fonts/#Poppins"
-                            Margin="10,10,0,0" />
+                    <TextBlock  x:Name="tBlockTrueWords"
+                                Text="Correct words"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                FontSize="20"
+                                Foreground="White"
+                                FontFamily="/Fonts/#Poppins"
+                                Margin="10,10,0,0" />
+
+                    <TextBlock  x:Name="tBlockFalseWords"
+                                Text="Wrong words"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                FontSize="20"
+                                Foreground="White"
+                                FontFamily="/Fonts/#Poppins"
+                                Margin="10,10,0,0" />
+                </StackPanel>
+                <StackPanel>
+                    <StackPanel Width="250"
+                                VerticalAlignment="Top"
+                                Margin="10,20,0,0">
+                        <TextBlock  x:Name="tBlockWpmResult"
+                                    Text="352 WPM"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left"
+                                    FontSize="40"
+                                    Foreground="DarkGreen"
+                                    FontFamily="/Fonts/#Poppins" />
+
+                        <TextBlock  x:Name="tBlockKeyStrokeResult"
+                                    Text=""
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left"
+                                    FontSize="20"
+                                    Foreground="Black"
+                                    FontFamily="/Fonts/#Poppins"
+                                    Margin="0,10,0,0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Width="250"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                        <StackPanel>
+                            <TextBlock  x:Name="tBlockTrueWordsResult"
+                                        Text="22"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        FontSize="20"
+                                        Foreground="Black"
+                                        FontFamily="/Fonts/#Poppins"
+                                        Margin="10,10,0,0" />
+
+                            <TextBlock  x:Name="tBlockFalseWordsResult"
+                                        Text="3"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        FontSize="20"
+                                        Foreground="Black"
+                                        FontFamily="/Fonts/#Poppins"
+                                        Margin="10,10,0,0" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock  x:Name="tBlockAccuracy"
+                                        Text="Accuracy"
+                                        VerticalAlignment="Bottom"
+                                        HorizontalAlignment="Left"
+                                        FontSize="20"
+                                        Foreground="White"
+                                        FontFamily="/Fonts/#Poppins"
+                                        Margin="20,10,0,0" />
+                            <TextBlock  x:Name="tBlockAccuracyResult"
+                                        Text="76.85%"
+                                        VerticalAlignment="Bottom"
+                                        HorizontalAlignment="Left"
+                                        FontSize="20"
+                                        Foreground="Black"
+                                        FontFamily="/Fonts/#Poppins" 
+                                        Margin="10,10,0,0"/>
+                        </StackPanel>
+
+
+
+
+                    </StackPanel>
+
+                </StackPanel>
+
             </StackPanel>
-            <StackPanel Orientation="Vertical"
-                        Width="200"
-                        Height="200"
-                        VerticalAlignment="Top"
-                        HorizontalAlignment="Right">
-                <TextBlock  x:Name="tBlockWpmResult"
-                            Text="352 WPM"
-                            VerticalAlignment="Center"
-                            HorizontalAlignment="Left"
-                            FontSize="40"
-                            Foreground="DarkGreen"
-                            FontFamily="/Fonts/#Poppins"
-                            Margin="10,20,0,0" />
 
-                <TextBlock  x:Name="tBlockKeyStrokeResult"
-                            Text=""
-                            VerticalAlignment="Center"
-                            HorizontalAlignment="Left"
-                            FontSize="20"
-                            Foreground="Black"
-                            FontFamily="/Fonts/#Poppins"
-                            Margin="10,10,0,0" />
-
-                <TextBlock  x:Name="tBlockTrueWordsResult"
-                            Text="22"
-                            VerticalAlignment="Center"
-                            HorizontalAlignment="Left"
-                            FontSize="20"
-                            Foreground="Black"
-                            FontFamily="/Fonts/#Poppins"
-                            Margin="10,10,0,0" />
-
-                <TextBlock  x:Name="tBlockFalseWordsResult"
-                            Text="3"            
-                            VerticalAlignment="Center"
-                            HorizontalAlignment="Left"
-                            FontSize="20"
-                            Foreground="Black"
-                            FontFamily="/Fonts/#Poppins"
-                            Margin="10,10,0,0" />
-            </StackPanel>
 
             <Button x:Name="btnContinue"
-                VerticalAlignment="Bottom"
+                    VerticalAlignment="Bottom"
                     HorizontalAlignment="Center"
                     Height="80"
                     Width="450"
@@ -114,7 +143,7 @@
                     Background="#eab676"
                     Style="{StaticResource  ContinueButtonTheme}"
                     Click="btnContinue_Click">
-                
+
             </Button>
         </Grid>
     </Border>

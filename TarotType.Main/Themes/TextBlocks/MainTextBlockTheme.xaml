@@ -14,7 +14,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Label">
                     <Border Background="{TemplateBinding Background}"
-                            Height="40"
+                            Height="44"
                             Margin="{TemplateBinding Margin}"
                             CornerRadius="5">
 

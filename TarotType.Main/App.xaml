@@ -11,6 +11,7 @@
                 <ResourceDictionary Source="Themes/TextBoxes/MainTextBoxTheme.xaml" />
                 <ResourceDictionary Source="Themes/Buttons/RefreshButtonTheme.xaml" />
                 <ResourceDictionary Source="Themes/Buttons/ContinueButtonTheme.xaml" />
+                <ResourceDictionary Source="Themes/ToggleButtons/ChangeThemeToggleButtonTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

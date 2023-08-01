@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Words\300.000-Words-WithOnlyComma.txt" />
+    <None Remove="Words\300.000-Words-WithOnlyComma" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Words\300.000-Words-WithOnlyComma.txt">
+    <EmbeddedResource Include="Words\300.000-Words-WithOnlyComma">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
