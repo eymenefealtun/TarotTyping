@@ -9,6 +9,13 @@
 
   <ItemGroup>
     <None Remove="Fonts\Poppins-Regular.ttf" />
+    <None Remove="Settings\Preference.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Settings\Preference.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -20,9 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Settings\Preference.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="Settings\TrialTheme.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -10,13 +10,11 @@
         Width="850"
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
-        Background="Red">
+        Background="#eeeee4">
 
     <Grid x:Name="mainGrid">
 
         <Grid>
-
-
 
             <ToggleButton x:Name="btnTheme"
                           Height="40"
