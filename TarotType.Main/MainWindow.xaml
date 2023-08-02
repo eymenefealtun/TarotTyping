@@ -10,7 +10,7 @@
         Width="850"
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
-        Background="#eeeee4">
+        Background="Red">
 
     <Grid x:Name="mainGrid">
 
@@ -133,6 +133,7 @@
                                              BorderBrush="Transparent"
                                              BorderThickness="0"
                                              Background="LightGray"
+                                             Loaded="tboxWrite_Loaded"
                                              PreviewKeyDown="tboxWrite_PreviewKeyDown" />
                                 </Border>
 

@@ -1,17 +1,14 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Shapes;
 using System.Windows.Threading;
+using TarotType.Main.Settings;
 using TarotType.Main.View;
 using Utilities;
 using Path = System.IO.Path;
@@ -31,14 +28,20 @@ namespace TarotType.Main
         int _numberOfFalseKeyStroke;
 
         int _currentWord1Index = 0;
+        int _second = 60;
+
         string _targetText;
         string _currentTextOfTextBox;
-        private int _second = 60;
 
         bool _isTextBoxChangedCanFire;
-        private bool _isStartedBefore;
+        bool _isStartedBefore;
 
         string[] _sourceWords;
+
+        string _prefencePath = Path.Combine(Environment.CurrentDirectory, @"Settings\Preference.txt");
+        string _lightThemeCode = "#eeeee4";
+        string _darkThemeCode = "#1e1e1e";
+        Preferences _preferences;
 
         public MainWindow()
         {
@@ -51,13 +54,18 @@ namespace TarotType.Main
             _dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             _dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
 
-
-
-
             _sourceWords = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Words\300.000-Words-WithOnlyComma")).Split(',').ToArray();
+       
+
+        }
+
+        private void tboxWrite_Loaded(object sender, RoutedEventArgs e)
+        {
+            Preferences preferences = new Preferences();
+            _preferences = preferences;
+
             RefreshGame();
-
-
+            SetThemeAccordingtoStorage();
         }
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
@@ -228,7 +236,6 @@ namespace TarotType.Main
             RefreshStack(stckPanel1, _words1);
             RefreshStack(stckPanel2, _words2);
 
-
         }
 
 
@@ -268,31 +275,30 @@ namespace TarotType.Main
             }
         }
 
-        string _currentTheme;
         private void SetThemeAccordingtoStorage()
         {
-            using (StreamReader reader = new StreamReader(@"Settings\PreferenceStorage.txt"))
+            using (StreamReader reader = new StreamReader(_prefencePath))
             {
-                _currentTheme = reader.ReadLine();
+                _preferences.ThemeHexCode = reader.ReadLine();
+
+                this.Background = (SolidColorBrush)new BrushConverter().ConvertFrom(_preferences.ThemeHexCode);
+
+                btnTheme.IsChecked = _preferences.ThemeHexCode == _darkThemeCode ? btnTheme.IsChecked = false : btnTheme.IsChecked = true;
             }
         }
+
 
         private void btnTheme_Click(object sender, RoutedEventArgs e)
         {
-        
             if (btnTheme.IsChecked == false)
-            {
-                var a = (SolidColorBrush)new BrushConverter().ConvertFrom("#1e1e1e");
-                this.Background = a;
-            }
+                File.WriteAllText(_prefencePath, _darkThemeCode);
             else
-            {
-                var a = (SolidColorBrush)new BrushConverter().ConvertFrom("#eeeee4");
-                this.Background = a;
-            }
+                File.WriteAllText(_prefencePath, _lightThemeCode);
+
+            SetThemeAccordingtoStorage();
         }
 
-
+   
     }
 
 }
