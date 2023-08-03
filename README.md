@@ -25,6 +25,6 @@ Tarot Type is a typing test application calculates WPM and accuracy, written in 
 * Buy me a coffee: [eymenefealtun](https://www.buymeacoffee.com/altuneymenefe) 
 
 ### How to contribute?
- 1. Fork the [repository](https://github.com/eymenefealtun/TarotType/fork).
+ 1. [Fork](https://github.com/eymenefealtun/TarotType/fork) the repository.
  2. Make changes.
  3. Create pull request with descriptive explanation.
