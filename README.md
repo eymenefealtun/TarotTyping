@@ -28,4 +28,4 @@ Tarot Type is a typing test application calculates WPM and accuracy, written in 
 ### How to contribute?
  1. [Fork](https://github.com/eymenefealtun/TarotType/fork) the repository.
  2. Make changes.
- 3. Create pull request with descriptive explanation.
+ 3. Create a pull request with descriptive explanation.
