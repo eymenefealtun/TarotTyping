@@ -4,7 +4,7 @@
 ![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
 
 <p align="center">
-  <img src="https://github.com/eymenefealtun/TarotType/blob/master/Pictures/Tarot_Type200.png?raw=true" alt="Sublime's custom image"/>
+  <img src="https://github.com/eymenefealtun/TarotTyping/blob/master/Pictures/Tarot_Typing_600_200.png?raw=true" alt="Sublime's custom image"/>
 </p>
 
 <p align="center">
