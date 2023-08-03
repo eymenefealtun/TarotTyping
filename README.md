@@ -1,4 +1,4 @@
-# TarotType
+# TarotTyping
 [
 ![forthebadge made-with-python](https://forthebadge.com/images/badges/made-with-c-sharp.svg)](https://learn.microsoft.com/en-us/dotnet/csharp/) 
 ![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
