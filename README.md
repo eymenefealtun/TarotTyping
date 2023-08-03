@@ -6,7 +6,7 @@
   <img src="https://github.com/eymenefealtun/TarotType/blob/master/Pictures/Tarot_Type200.png?raw=true" alt="Sublime's custom image"/>
 </p>
 
-Tarot Type is a typing test application which calculates WPM and accuracy, written in [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) based on [WPF](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/?view=netdesktop-7.0).
+Tarot Type is a typing test application calculates WPM and accuracy, written in [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) based on [WPF](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/?view=netdesktop-7.0).
 
 ![](https://github.com/eymenefealtun/TarotType/blob/master/Pictures/readmeGif.gif)
 ![](https://github.com/eymenefealtun/TarotType/blob/master/Pictures/resultPicture.PNG)
