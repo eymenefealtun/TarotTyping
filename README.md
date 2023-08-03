@@ -9,6 +9,7 @@
 Tarot Type is and typing test application which calculates WPM and accuracy written in [C#](https://learn.microsoft.com/en-us/dotnet/csharp/).
 
 ![](https://github.com/eymenefealtun/TarotType/blob/master/Pictures/readmeGif.gif)
+![](https://github.com/eymenefealtun/TarotType/blob/master/Pictures/resultPicture.PNG)
 
 
 ### Created By: [@eymenefealtun](https://github.com/eymenefealtun)
