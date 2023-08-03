@@ -1,6 +1,7 @@
 # TarotType
 [
 ![forthebadge made-with-python](https://forthebadge.com/images/badges/made-with-c-sharp.svg)](https://learn.microsoft.com/en-us/dotnet/csharp/) 
+![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
 
 <p align="center">
   <img src="https://github.com/eymenefealtun/TarotType/blob/master/Pictures/Tarot_Type200.png?raw=true" alt="Sublime's custom image"/>
