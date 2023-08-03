@@ -19,6 +19,6 @@ Tarot Type is and typing test application written in [C#](https://learn.microsof
 * Buy me a coffee: [eymenefealtun](https://www.buymeacoffee.com/altuneymenefe) 
 
 ### How to contribute?
- 1. Fork the [respository](https://github.com/eymenefealtun/TarotType/fork).
+ 1. Fork the [repository](https://github.com/eymenefealtun/TarotType/fork).
  2. Make changes.
  3. Create pull request with descriptive explanation.
