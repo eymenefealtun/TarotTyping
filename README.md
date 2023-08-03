@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-<img ![forthebadge made-with-python](https://forthebadge.com/images/badges/works-on-my-machine.svg)/>
+<img src ="https://forthebadge.com/images/badges/works-on-my-machine.svg"/>
 </p>
 
 
