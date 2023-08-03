@@ -1,10 +1,10 @@
 # TarotTyping
-[
-![forthebadge made-with-python](https://forthebadge.com/images/badges/made-with-c-sharp.svg)](https://learn.microsoft.com/en-us/dotnet/csharp/) 
-![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
-
 <p align="center">
   <img src="https://github.com/eymenefealtun/TarotTyping/blob/master/Pictures/Tarot_Typing_600_200.png?raw=true" alt="Sublime's custom image"/>
+</p>
+<p align="center">
+<img src ="https://forthebadge.com/images/badges/made-with-c-sharp.svg"/>
+<img src ="https://forthebadge.com/images/badges/built-with-love.svg"/>
 </p>
 
 <p align="center">
