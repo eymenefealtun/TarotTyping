@@ -26,6 +26,7 @@
                           Style="{StaticResource ChangeThemeToggleButtonTheme}">
 
             </ToggleButton>
+            
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal"
@@ -39,51 +40,7 @@
                                     Value="10,0,0,0" />
                         </Style>
                     </StackPanel.Resources>
-                    <!--#region trial -->
-                    <!--<TextBlock 
-                       FontFamily="/Fonts/#Poppins"
-                       FontSize="20"
-                       VerticalAlignment="Center"
-                       Text="dasdas asdasd dasdas asdasd dasdas"/>-->
-                    <!--<TextBlock Height="50"
-                       Text="hello"
-                       FontFamily="/Fonts/#Poppins"
-                       FontSize="20" />
-            <TextBlock Height="50"
-                       Text="hello"
-                       FontFamily="/Fonts/#Poppins"
-                       FontSize="20" />
-            <TextBlock Height="50"
-                       Text="hello"
-                       FontFamily="/Fonts/#Poppins"
-                       FontSize="20" />
-            <TextBlock Height="50"
-                       Text="hello"
-                       FontFamily="/Fonts/#Poppins"
-                       FontSize="20" />
-            <TextBlock Height="50"
-                       Text="hello"
-                       FontFamily="/Fonts/#Poppins"
-                       FontSize="20" />
-            <TextBlock Height="50"
-                       Text="hello"
-                       FontFamily="/Fonts/#Poppins"
-                       FontSize="20" />
-            <TextBlock Height="50"
-                       Text="yyyy"
-                       FontFamily="/Fonts/#Poppins"
-                       FontSize="20" />
-            <TextBlock Height="50"
-                       Text="hello"
-                       FontFamily="/Fonts/#Poppins"
-                       FontSize="20" />
-            <TextBlock Height="50"
-                       Text="hello"
-                       FontFamily="/Fonts/#Poppins"
-                       FontSize="20" />-->
-
-
-                    <!--#endregion-->
+               
 
                 </StackPanel>
 

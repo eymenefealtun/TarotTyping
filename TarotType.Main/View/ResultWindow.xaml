@@ -18,7 +18,7 @@
     <Border Background="#6aa3b1"
             CornerRadius="20">
         <Grid>
-       
+
             <StackPanel Orientation="Horizontal"
                         Width="450">
 
@@ -120,8 +120,8 @@
                                         HorizontalAlignment="Left"
                                         FontSize="20"
                                         Foreground="Black"
-                                        FontFamily="/Fonts/#Poppins" 
-                                        Margin="10,10,0,0"/>
+                                        FontFamily="/Fonts/#Poppins"
+                                        Margin="10,10,0,0" />
                         </StackPanel>
 
 

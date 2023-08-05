@@ -67,6 +67,7 @@ namespace TarotType.Main
             RefreshGame();
             SetThemeAccordingtoStorage();
         }
+
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
             RefreshGame();
@@ -99,9 +100,7 @@ namespace TarotType.Main
             {
                 _isStartedBefore = true;
                 _dispatcherTimer.Start();
-                return;
             }
-
             else if (tboxWrite.Text != string.Empty && !_isTextBoxChangedCanFire || tboxWrite.Text == " ")
             {
                 tboxWrite.Text = String.Empty;
@@ -142,9 +141,7 @@ namespace TarotType.Main
                 if (_currentWord1Index == lastIndex - 1)
                 {
                     _currentWord1Index = 0;
-
                     GetAnotherStack(_words2);
-
                     return;
                 }
 
@@ -152,7 +149,6 @@ namespace TarotType.Main
 
                 if (_currentTextOfTextBox == _targetText)
                     TextDoneTrue(_words1[_currentWord1Index], _words1[_currentWord1Index + 1]);
-
                 else
                     TextDoneWrong(_words1[_currentWord1Index], _words1[_currentWord1Index + 1]);
             }
@@ -225,6 +221,7 @@ namespace TarotType.Main
             _numberOfKeyStroke = 0;
             _numberOfTrueKeyStroke = 0;
             _numberOfFalseKeyStroke = 0;
+
             _isTextBoxChangedCanFire = true;
             _isStartedBefore = false;
 
@@ -248,11 +245,12 @@ namespace TarotType.Main
 
             int currentLength = 0;
 
+
+
             for (int i = 0; i < array.Length; i++)
             {
 
                 Label lbl = new Label();
-
                 lbl.Background = i == 0 && labels == _words1 ? Brushes.LightGray : Brushes.Transparent; //First word set to Light Gray
                 lbl.Content = array[i];
                 lbl.Style = (Style)FindResource("MainTextBlockTheme");
@@ -261,6 +259,7 @@ namespace TarotType.Main
 
                 lbl.Measure(new Size(Double.PositiveInfinity, Double.PositiveInfinity));
                 lbl.Arrange(new Rect(lbl.DesiredSize));
+
                 currentLength += (Convert.ToInt32(lbl.ActualWidth) + (int)lbl.Margin.Left);
 
                 //If total length of the words exceeds the limit we break.
