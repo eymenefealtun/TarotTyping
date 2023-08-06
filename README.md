@@ -2,17 +2,28 @@
 <p align="center">
   <img src="https://github.com/eymenefealtun/TarotTyping/blob/master/Pictures/Tarot_Typing_600_200.png?raw=true" alt="Sublime's custom image"/>
 </p>
-<p align="center">
-<img src ="https://forthebadge.com/images/badges/made-with-c-sharp.svg"/>
-<img src ="https://forthebadge.com/images/badges/built-with-love.svg"/>
-</p>
 
 <p align="center">
-<img src ="https://forthebadge.com/images/badges/works-on-my-machine.svg"/>
+    <a href="#backers" alt="Backers on Open Collective">
+        <img src="https://img.shields.io/badge/MADE_WITH-CSharp-green?style=plastic" /></a>
+         <a href="#backers" alt="Backers on Open Collective">
+        <img src="https://img.shields.io/github/commit-activity/t/eymenefealtun/TarotTyping?style=plastic" /></a>
+          <a href="#backers" alt="Backers on Open Collective">
+        <img src="https://img.shields.io/github/downloads/eymenefealtun/TarotTyping/total?style=plastic" /></a>
+        <a href="#backers" alt="Backers on Open Collective">
+        <img src="https://img.shields.io/github/languages/code-size/eymenefealtun/TarotTyping?style=plastic" /></a>
+                <a href="#backers" alt="Backers on Open Collective">
+        <img src="https://img.shields.io/github/stars/eymenefealtun/TarotTyping?style=plastic" /></a>
+                <a href="#backers" alt="Backers on Open Collective">
+        <img src="https://img.shields.io/github/watchers/eymenefealtun/TarotTyping?style=plastic" /></a>
+                <a href="#backers" alt="Backers on Open Collective">
+        <img src="https://img.shields.io/github/forks/eymenefealtun/TarotTyping?style=plastic" /></a>
+
 </p>
 
 
 Tarot Typing is a typing test application calculates WPM and accuracy, written in [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) based on [WPF](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/?view=netdesktop-7.0).
+
 
 :movie_camera:[Video Introduction](https://www.youtube.com/watch?v=5NBBNugTKEs&t=6s):movie_camera:
 
@@ -31,3 +42,5 @@ Tarot Typing is a typing test application calculates WPM and accuracy, written i
  1. [Fork](https://github.com/eymenefealtun/TarotType/fork) the repository.
  2. Make changes.
  3. Create a pull request with descriptive explanation.
+
+
