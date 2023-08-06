@@ -11,6 +11,7 @@
 <img src ="https://forthebadge.com/images/badges/works-on-my-machine.svg"/>
 </p>
 
+[![Npm package yearly downloads](https://badgen.net/npm/dy/express)](https://npmjs.com/package/express)
 
 Tarot Typing is a typing test application calculates WPM and accuracy, written in [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) based on [WPF](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/?view=netdesktop-7.0).
 
