@@ -26,26 +26,29 @@
                           Style="{StaticResource ChangeThemeToggleButtonTheme}">
 
             </ToggleButton>
-            
+
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
-                <StackPanel Orientation="Horizontal"
-                            Width="800"
+                <StackPanel Width="800"
                             Height="60"
+                 
+                            Orientation="Horizontal"
                             x:Name="stckPanel1"
                             Background="White">
                     <StackPanel.Resources>
                         <Style TargetType="{x:Type Label}">
                             <Setter Property="Margin"
                                     Value="10,0,0,0" />
+
                         </Style>
                     </StackPanel.Resources>
-               
+
 
                 </StackPanel>
 
                 <StackPanel VerticalAlignment="Center"
                             HorizontalAlignment="Center"
+  
                             Orientation="Horizontal"
                             Width="{Binding Width, ElementName=stckPanel1}"
                             Height="60"
@@ -55,6 +58,7 @@
                         <Style TargetType="{x:Type Label}">
                             <Setter Property="Margin"
                                     Value="10,0,0,0" />
+
                         </Style>
                     </StackPanel.Resources>
 

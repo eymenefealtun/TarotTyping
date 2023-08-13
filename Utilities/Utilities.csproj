@@ -8,10 +8,20 @@
 
   <ItemGroup>
     <None Remove="Words\300.000-Words-WithOnlyComma" />
+    <None Remove="Words\ArabicDatabase" />
+    <None Remove="Words\ArabicDatabase100MB.txt" />
+    <None Remove="Words\Arabic\ArabicDatabase91MB.txt" />
+    <None Remove="Words\TurkishDataBaseWithoutDuplicates" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Words\300.000-Words-WithOnlyComma">
+    <EmbeddedResource Include="Words\Arabic\ArabicDatabase91MB.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Words\English\300.000-Words-WithOnlyComma">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Words\Turkish\TurkishDataBaseWithoutDuplicates">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

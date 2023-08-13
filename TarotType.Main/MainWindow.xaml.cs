@@ -54,8 +54,14 @@ namespace TarotType.Main
             _dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             _dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
 
-            _sourceWords = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Words\300.000-Words-WithOnlyComma")).Split(',').ToArray();
-       
+            //_sourceWords = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Words\English\300.000-Words-WithOnlyComma")).Split(',').ToArray();
+            //_sourceWords = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Words\Turkish\TurkishDataBaseWithoutDuplicates")).Split(',').ToArray();
+            _sourceWords = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Words\Arabic\ArabicDatabase91MB.txt")).Split(',').ToArray();
+            tboxWrite.FlowDirection = FlowDirection.RightToLeft;
+            stckPanel1.FlowDirection = FlowDirection.RightToLeft;
+            stckPanel1.FlowDirection = FlowDirection.RightToLeft;
+
+
 
         }
 
@@ -128,7 +134,6 @@ namespace TarotType.Main
         private void tboxWrite_PreviewKeyDown(object sender, KeyEventArgs e) //when text of tboxWrite changed PreviewKeyDown event get fires first
         {
             _targetText = _words1[_currentWord1Index].Content.ToString();
-
             if (e.Key == Key.Escape)
             {
                 RefreshGame();
@@ -137,6 +142,7 @@ namespace TarotType.Main
 
             if (e.Key == Key.Space && tboxWrite.Text != string.Empty)
             {
+
                 int lastIndex = _words1.Count;
                 if (_currentWord1Index == lastIndex - 1)
                 {
@@ -202,6 +208,7 @@ namespace TarotType.Main
                 _words1.Add(_words2[i]);
             }
 
+
             tboxWrite.Text = String.Empty;
             RefreshStack(stckPanel2, _words2);
         }
@@ -254,7 +261,6 @@ namespace TarotType.Main
                 lbl.Background = i == 0 && labels == _words1 ? Brushes.LightGray : Brushes.Transparent; //First word set to Light Gray
                 lbl.Content = array[i];
                 lbl.Style = (Style)FindResource("MainTextBlockTheme");
-
                 //Calculations in order not to break the size limit of stack panel.
 
                 lbl.Measure(new Size(Double.PositiveInfinity, Double.PositiveInfinity));
@@ -269,7 +275,9 @@ namespace TarotType.Main
 
                 labels.Add(lbl);
                 panel.Children.Insert(i, lbl);
-
+                
+                // if arabic
+                panel.FlowDirection = FlowDirection.RightToLeft;
 
             }
         }
@@ -297,7 +305,7 @@ namespace TarotType.Main
             SetThemeAccordingtoStorage();
         }
 
-   
+
     }
 
 }
