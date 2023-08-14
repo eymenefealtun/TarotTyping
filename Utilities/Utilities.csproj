@@ -7,22 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Words\300.000-Words-WithOnlyComma" />
-    <None Remove="Words\ArabicDatabase" />
-    <None Remove="Words\ArabicDatabase100MB.txt" />
-    <None Remove="Words\Arabic\ArabicDatabase91MB.txt" />
-    <None Remove="Words\TurkishDataBaseWithoutDuplicates" />
+    <None Remove="Words\Arabic\Arabic-5.691.498.txt" />
+    <None Remove="Words\English\English-300.000.txt" />
+    <None Remove="Words\Turkish\Turkish-60.451.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Words\Arabic\ArabicDatabase91MB.txt">
+    <EmbeddedResource Include="Words\Arabic\Arabic-5.691.498.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Words\English\300.000-Words-WithOnlyComma">
+    <EmbeddedResource Include="Words\English\English-300.000.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Words\Turkish\TurkishDataBaseWithoutDuplicates">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <EmbeddedResource Include="Words\Turkish\Turkish-60.451.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
 

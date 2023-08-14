@@ -15,23 +15,35 @@
     <Grid x:Name="mainGrid">
 
         <Grid>
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left">
+                <ToggleButton x:Name="btnTheme"
+                              Height="40"
+                              VerticalAlignment="Top"
+                              HorizontalAlignment="Left"
+                              Margin="5,5,0,0"
+                              Click="btnTheme_Click"
+                              IsChecked="True"
+                              Style="{StaticResource ChangeThemeToggleButtonTheme}">
 
-            <ToggleButton x:Name="btnTheme"
-                          Height="40"
-                          VerticalAlignment="Top"
-                          HorizontalAlignment="Left"
-                          Margin="5,5,0,0"
-                          Click="btnTheme_Click"
-                          IsChecked="True"
-                          Style="{StaticResource ChangeThemeToggleButtonTheme}">
-
-            </ToggleButton>
-
+                </ToggleButton>
+                <ComboBox Width="100"
+                          Height="25"
+                          Margin="5,-10,0,0"
+                          Style="{StaticResource ComboBoxTheme}"
+                          SelectionChanged="cBoxLanguages_SelectionChanged"
+                          SelectedValuePath="Content"
+                          x:Name="cBoxLanguages">
+                    <ComboBoxItem Content="Arabic" />
+                    <ComboBoxItem Content="English" />
+                    <ComboBoxItem Content="Turkish" />
+                </ComboBox>
+            </StackPanel>
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <StackPanel Width="800"
                             Height="60"
-                 
                             Orientation="Horizontal"
                             x:Name="stckPanel1"
                             Background="White">
@@ -48,7 +60,6 @@
 
                 <StackPanel VerticalAlignment="Center"
                             HorizontalAlignment="Center"
-  
                             Orientation="Horizontal"
                             Width="{Binding Width, ElementName=stckPanel1}"
                             Height="60"
@@ -92,7 +103,6 @@
                                              BorderBrush="Transparent"
                                              BorderThickness="0"
                                              Background="LightGray"
-                                             Loaded="tboxWrite_Loaded"
                                              PreviewKeyDown="tboxWrite_PreviewKeyDown" />
                                 </Border>
 

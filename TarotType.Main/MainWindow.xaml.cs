@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -11,7 +8,6 @@ using System.Windows.Threading;
 using TarotType.Main.Settings;
 using TarotType.Main.View;
 using Utilities;
-using Path = System.IO.Path;
 
 namespace TarotType.Main
 {
@@ -35,13 +31,12 @@ namespace TarotType.Main
 
         bool _isTextBoxChangedCanFire;
         bool _isStartedBefore;
+        bool _canComboBoxChangedFired = false;
 
         string[] _sourceWords;
 
-        string _prefencePath = Path.Combine(Environment.CurrentDirectory, @"Settings\Preference.txt");
         string _lightThemeCode = "#eeeee4";
         string _darkThemeCode = "#1e1e1e";
-        Preferences _preferences;
 
         public MainWindow()
         {
@@ -54,25 +49,19 @@ namespace TarotType.Main
             _dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             _dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
 
-            //_sourceWords = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Words\English\300.000-Words-WithOnlyComma")).Split(',').ToArray();
-            //_sourceWords = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Words\Turkish\TurkishDataBaseWithoutDuplicates")).Split(',').ToArray();
-            _sourceWords = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Words\Arabic\ArabicDatabase91MB.txt")).Split(',').ToArray();
-            tboxWrite.FlowDirection = FlowDirection.RightToLeft;
-            stckPanel1.FlowDirection = FlowDirection.RightToLeft;
-            stckPanel1.FlowDirection = FlowDirection.RightToLeft;
+            Preferences.GetPreferences(btnTheme, this, cBoxLanguages);
+            _sourceWords = SourceManager.GetLanguageArray(SourceManager.CurrentLanguage);
 
-
-
-        }
-
-        private void tboxWrite_Loaded(object sender, RoutedEventArgs e)
-        {
-            Preferences preferences = new Preferences();
-            _preferences = preferences;
+            if (SourceManager.CurrentLanguage.FlowDirection() == "right")
+            {
+                tboxWrite.FlowDirection = FlowDirection.RightToLeft;
+                stckPanel1.FlowDirection = FlowDirection.RightToLeft;
+                stckPanel1.FlowDirection = FlowDirection.RightToLeft;
+            }
 
             RefreshGame();
-            SetThemeAccordingtoStorage();
         }
+
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
@@ -248,18 +237,16 @@ namespace TarotType.Main
             panel.Children.Clear();
             labels.Clear();
 
-            string[] array = WordManager.GetRandomWord(20, _sourceWords);
+            string[] wordArray = WordManager.GetRandomWord(20, _sourceWords);
 
-            int currentLength = 0;
+            int currentLength = 0;          
 
-
-
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < wordArray.Length; i++)
             {
 
                 Label lbl = new Label();
                 lbl.Background = i == 0 && labels == _words1 ? Brushes.LightGray : Brushes.Transparent; //First word set to Light Gray
-                lbl.Content = array[i];
+                lbl.Content = wordArray[i];
                 lbl.Style = (Style)FindResource("MainTextBlockTheme");
                 //Calculations in order not to break the size limit of stack panel.
 
@@ -275,36 +262,64 @@ namespace TarotType.Main
 
                 labels.Add(lbl);
                 panel.Children.Insert(i, lbl);
-                
-                // if arabic
-                panel.FlowDirection = FlowDirection.RightToLeft;
 
+                if (SourceManager.CurrentLanguage.FlowDirection() == "right")
+                    panel.FlowDirection = FlowDirection.RightToLeft;
+                else
+                    panel.FlowDirection = FlowDirection.LeftToRight;
             }
         }
-
-        private void SetThemeAccordingtoStorage()
-        {
-            using (StreamReader reader = new StreamReader(_prefencePath))
-            {
-                _preferences.ThemeHexCode = reader.ReadLine();
-
-                this.Background = (SolidColorBrush)new BrushConverter().ConvertFrom(_preferences.ThemeHexCode);
-
-                btnTheme.IsChecked = _preferences.ThemeHexCode == _darkThemeCode ? btnTheme.IsChecked = false : btnTheme.IsChecked = true;
-            }
-        }
-
 
         private void btnTheme_Click(object sender, RoutedEventArgs e)
         {
             if (btnTheme.IsChecked == false)
-                File.WriteAllText(_prefencePath, _darkThemeCode);
+                Preferences.ThemeHexCode = _darkThemeCode;
             else
-                File.WriteAllText(_prefencePath, _lightThemeCode);
+                Preferences.ThemeHexCode = _lightThemeCode;
 
-            SetThemeAccordingtoStorage();
+            SettingsChanged(Preferences.ThemeHexCode, cBoxLanguages.SelectedValue.ToString());
         }
 
+        private void cBoxLanguages_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (_canComboBoxChangedFired == false)
+            {
+                _canComboBoxChangedFired = true;
+                return;
+            }
+                            
+
+            SettingsChanged(Preferences.ThemeHexCode,cBoxLanguages.SelectedValue.ToString());
+
+            Mouse.OverrideCursor = Cursors.Wait;
+
+            _sourceWords = SourceManager.GetLanguageArray(SourceManager.CurrentLanguage);
+
+            if (SourceManager.CurrentLanguage.FlowDirection() == "right")
+            {
+                tboxWrite.FlowDirection = FlowDirection.RightToLeft;
+                stckPanel1.FlowDirection = FlowDirection.RightToLeft;
+                stckPanel1.FlowDirection = FlowDirection.RightToLeft;
+            }
+            else
+            {
+                tboxWrite.FlowDirection = FlowDirection.LeftToRight;
+                stckPanel1.FlowDirection = FlowDirection.LeftToRight;
+                stckPanel1.FlowDirection = FlowDirection.LeftToRight;
+            }
+
+            RefreshGame();
+
+            Mouse.OverrideCursor = null;
+        }
+
+        private void SettingsChanged(string themeCode, string languageName)
+        {
+            Preferences.ThemeHexCode = themeCode;
+            Preferences.LanguageName = languageName;
+            Preferences.SetPreferences();
+            Preferences.GetPreferences(btnTheme, this, cBoxLanguages);
+        }
 
     }
 

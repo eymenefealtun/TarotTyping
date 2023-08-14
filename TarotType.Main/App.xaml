@@ -6,12 +6,25 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/ScrollBar/ScrollViewerTheme.xaml" />
+                <ResourceDictionary Source="Themes/ScrollBar/ScrollBarTheme.xaml" />            
+                            
+                
                 <ResourceDictionary Source="Themes/TextBlocks/MainTextBlockTheme.xaml" />
                 <ResourceDictionary Source="Themes/TextBlocks/TimerTextBlockTheme.xaml" />
+                
                 <ResourceDictionary Source="Themes/TextBoxes/MainTextBoxTheme.xaml" />
+                
                 <ResourceDictionary Source="Themes/Buttons/RefreshButtonTheme.xaml" />
                 <ResourceDictionary Source="Themes/Buttons/ContinueButtonTheme.xaml" />
+                
                 <ResourceDictionary Source="Themes/ToggleButtons/ChangeThemeToggleButtonTheme.xaml" />
+                
+                <ResourceDictionary Source="Themes/ComboBox/ComboboxToggleButtonTheme.xaml" />
+                <ResourceDictionary Source="Themes/ComboBox/ComboBoxTheme.xaml" />
+
+
+                
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

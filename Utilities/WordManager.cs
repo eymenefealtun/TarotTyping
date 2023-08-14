@@ -1,7 +1,6 @@
-﻿
-namespace Utilities
-{
-    public static class WordManager
+﻿namespace Utilities
+{           
+    public static class WordManager      
     {
         public static string[] GetRandomWord(int wordPerEachCall, string[] sourceWords)
         {
@@ -15,7 +14,7 @@ namespace Utilities
                 resultWordArray[i] = sourceWords[number];
 
             }
-
+                        
             return resultWordArray;
 
         }
