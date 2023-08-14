@@ -1,5 +1,7 @@
 ﻿using System.Reflection;
 using Utilities.Words;
+using Utilities.Words.Kurdish;
+using Utilities.Words.Spanish;
 using Utilities.Words.Turkish;
 
 namespace Utilities
@@ -14,6 +16,8 @@ namespace Utilities
             { new English(), "English"},
             { new Arabic(), "Arabic"},
             { new Turkish(), "Turkish"},
+            { new Kurdish(), "Kurdish"},                
+            { new Spanish(), "Spanish"},                           
         };
 
         public static string[] GetLanguageArray(Language language)

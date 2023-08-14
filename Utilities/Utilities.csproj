@@ -9,7 +9,15 @@
   <ItemGroup>
     <None Remove="Words\Arabic\Arabic-5.691.498.txt" />
     <None Remove="Words\English\English-300.000.txt" />
+    <None Remove="Words\Kurdish\Kurdish-959.txt" />
+    <None Remove="Words\Spanish\Spanish-636.598.txt" />
     <None Remove="Words\Turkish\Turkish-60.451.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Words\Spanish\Spanish-636.598.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -18,6 +26,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Words\English\English-300.000.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Words\Kurdish\Kurdish-959.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Words\Turkish\Turkish-60.451.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
