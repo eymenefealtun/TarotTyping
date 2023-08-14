@@ -22,7 +22,7 @@
 </p>
 
 
-Tarot Typing is a typing test application calculates WPM and accuracy, written in [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) based on [WPF](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/?view=netdesktop-7.0). You can see more detail for local database in this [all-words-in-all-languages](https://github.com/eymenefealtun/all-words-in-all-languages).
+Tarot Typing is a typing test application calculates WPM and accuracy, written in [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) based on [WPF](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/?view=netdesktop-7.0). You can see more detail for local database in this [all-words-in-all-languages](https://github.com/eymenefealtun/all-words-in-all-languages) repository.
 
 
 :movie_camera:[Video Introduction](https://www.youtube.com/watch?v=5NBBNugTKEs&t=6s):movie_camera:
