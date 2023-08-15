@@ -11,6 +11,7 @@
     <None Remove="Words\Azerbaijani\Azerbaijani-38.503.txt" />
     <None Remove="Words\English\English-300.000.txt" />
     <None Remove="Words\French\French-336.528.txt" />
+    <None Remove="Words\Greek\Greek-35.279.txt" />
     <None Remove="Words\Kurdish\Kurdish-959.txt" />
     <None Remove="Words\Persian\Persian-900.357.txt" />
     <None Remove="Words\Spanish\Spanish-636.598.txt" />
@@ -22,6 +23,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Words\French\French-336.528.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Words\Greek\Greek-35.279.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Words\Persian\Persian-900.357.txt">

@@ -36,13 +36,14 @@
                           SelectedValuePath="Content"
                           x:Name="cBoxLanguages">
                     <ComboBoxItem Content="Arabic" />
-                    <ComboBoxItem Content="English" />
-                    <ComboBoxItem Content="Turkish" />
-                    <ComboBoxItem Content="Kurdish" />
-                    <ComboBoxItem Content="Spanish" />
-                    <ComboBoxItem Content="French" />
-                    <ComboBoxItem Content="Persian" />
                     <ComboBoxItem Content="Azerbaijani" />
+                    <ComboBoxItem Content="English" />
+                    <ComboBoxItem Content="French" />
+                    <ComboBoxItem Content="Greek" />
+                    <ComboBoxItem Content="Kurdish" />
+                    <ComboBoxItem Content="Persian" />
+                    <ComboBoxItem Content="Spanish" />
+                    <ComboBoxItem Content="Turkish" />
                 </ComboBox>
             </StackPanel>
             <StackPanel VerticalAlignment="Center"

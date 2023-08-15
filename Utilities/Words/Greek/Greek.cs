@@ -1,10 +1,10 @@
-﻿namespace Utilities.Words.Kurdish
+﻿namespace Utilities.Words.Greek
 {
-    public class Kurdish : Language     
+    public class Greek : Language
     {
-        string _path = @"Words\Kurdish\Kurdish-959.txt";
+        string _path = @"Words\Greek\Greek-35.279.txt";
         string _flowDirection = "left";
-        public override string FlowDirection()
+        public override string FlowDirection()              
         {
             return _flowDirection;
         }
