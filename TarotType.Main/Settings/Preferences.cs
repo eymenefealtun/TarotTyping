@@ -33,7 +33,7 @@ namespace TarotType.Main.Settings
             }
 
         }
-                    
+
 
         public static void GetPreferences(ToggleButton btnTheme, Window mainWindow, ComboBox cBoxLanguages)
         {
@@ -48,7 +48,7 @@ namespace TarotType.Main.Settings
                     btnTheme.IsChecked = ThemeHexCode == _darkThemeCode ? btnTheme.IsChecked = false : btnTheme.IsChecked = true;
                     mainWindow.Background = (SolidColorBrush)new BrushConverter().ConvertFrom(ThemeHexCode);
 
-                    cBoxLanguages.SelectedIndex = SourceManager._languageDictionary.FirstOrDefault(x => x.Value == LanguageName).Key.Index();
+                    cBoxLanguages.SelectedValue = SourceManager._languageDictionary.FirstOrDefault(x => x.Value == LanguageName).Value;
                 }
             }
             catch (Exception) { }

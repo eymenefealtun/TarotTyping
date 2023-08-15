@@ -1,9 +1,7 @@
-﻿
-namespace Utilities.Words.Turkish
+﻿namespace Utilities.Words.Turkish
 {
     public class Arabic : Language              
     {
-        public int _languageIndex = 0;          
         public string _path = @"Words\Arabic\Arabic-5.691.498.txt";
         public string _flowDirection = "right";
 
@@ -15,11 +13,6 @@ namespace Utilities.Words.Turkish
         public override string Path()
         {
             return _path;
-        }
-
-        public override int Index()
-        {
-            return _languageIndex;              
         }
     }
 }
