@@ -31,7 +31,7 @@ Tarot Typing is a typing test application calculates WPM and accuracy, written i
 ![](https://github.com/eymenefealtun/TarotType/blob/master/Pictures/resultPicture.PNG)
 
 ### Supported Languages
-[all-words-in-all-languages](https://github.com/eymenefealtun/all-words-in-all-languages)
+- [all-words-in-all-languages](https://github.com/eymenefealtun/all-words-in-all-languages)
 
 ### Created By: [@eymenefealtun](https://github.com/eymenefealtun)
 * Linkedin: [@eymenefealtun](https://www.linkedin.com/in/eymen-efe-altun-a1681821b)
