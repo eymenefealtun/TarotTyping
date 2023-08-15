@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using Utilities.Words;
+using Utilities.Words.Azerbaijani;
 using Utilities.Words.French;
 using Utilities.Words.Kurdish;
 using Utilities.Words.Persian;
@@ -22,6 +23,7 @@ namespace Utilities
             { new Spanish(), "Spanish"},
             { new French(), "French"},
             { new Persian(), "Persian"},
+            { new Azerbaijani(), "Azerbaijani"},
         };
 
         public static string[] GetLanguageArray(Language language)

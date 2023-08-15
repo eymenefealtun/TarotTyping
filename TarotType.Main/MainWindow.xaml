@@ -42,6 +42,7 @@
                     <ComboBoxItem Content="Spanish" />
                     <ComboBoxItem Content="French" />
                     <ComboBoxItem Content="Persian" />
+                    <ComboBoxItem Content="Azerbaijani" />
                 </ComboBox>
             </StackPanel>
             <StackPanel VerticalAlignment="Center"

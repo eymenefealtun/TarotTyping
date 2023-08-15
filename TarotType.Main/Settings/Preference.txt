@@ -1,2 +1,2 @@
-﻿#1e1e1e
-Turkish
+﻿#eeeee4
+English
