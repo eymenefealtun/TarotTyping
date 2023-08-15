@@ -2,6 +2,7 @@
 using Utilities.Words;
 using Utilities.Words.French;
 using Utilities.Words.Kurdish;
+using Utilities.Words.Persian;
 using Utilities.Words.Spanish;
 using Utilities.Words.Turkish;
 
@@ -19,7 +20,8 @@ namespace Utilities
             { new Turkish(), "Turkish"},
             { new Kurdish(), "Kurdish"},
             { new Spanish(), "Spanish"},
-            { new French(), "French"}
+            { new French(), "French"},
+            { new Persian(), "Persian"},
         };
 
         public static string[] GetLanguageArray(Language language)

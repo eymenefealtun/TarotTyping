@@ -2,8 +2,8 @@
 {
     public class Kurdish : Language
     {
-        public string _path = @"Words\Kurdish\Kurdish-959.txt";
-        public string _flowDirection = "left";
+        string _path = @"Words\Kurdish\Kurdish-959.txt";
+        string _flowDirection = "left";
         public override string FlowDirection()
         {
             return _flowDirection;
