@@ -2,10 +2,10 @@
 {
     public class Azerbaijani : Language
     {
-        string _flowDirection = "left";
+        
         string _path = @"Words\Azerbaijani\Azerbaijani-38.503.txt";
-
-        public override string FlowDirection()
+        SourceManager.flowDirections _flowDirection = SourceManager.flowDirections.left;
+        public override SourceManager.flowDirections FlowDirection()
         {
             return _flowDirection;
         }

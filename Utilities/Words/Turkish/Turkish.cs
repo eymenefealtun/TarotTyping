@@ -3,9 +3,8 @@
     public class Turkish : Language
     {
         string _path = @"Words\Turkish\Turkish-60.451.txt";
-        string _flowDirection = "left";
-
-        public override string FlowDirection()
+        SourceManager.flowDirections _flowDirection = SourceManager.flowDirections.left;
+        public override SourceManager.flowDirections FlowDirection()
         {
             return _flowDirection;
         }

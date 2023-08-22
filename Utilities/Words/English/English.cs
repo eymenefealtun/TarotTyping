@@ -3,8 +3,8 @@
     public class English : Language
     {
         string _path = @"Words\English\English-300.000.txt";
-        string _flowDirection = "left";
-        public override string FlowDirection()
+        SourceManager.flowDirections _flowDirection = SourceManager.flowDirections.left;
+        public override SourceManager.flowDirections FlowDirection()
         {
             return _flowDirection;
         }

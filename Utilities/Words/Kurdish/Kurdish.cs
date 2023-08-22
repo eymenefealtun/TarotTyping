@@ -3,8 +3,8 @@
     public class Kurdish : Language     
     {
         string _path = @"Words\Kurdish\Kurdish-959.txt";
-        string _flowDirection = "left";
-        public override string FlowDirection()
+        SourceManager.flowDirections _flowDirection = SourceManager.flowDirections.left;
+        public override SourceManager.flowDirections FlowDirection()
         {
             return _flowDirection;
         }

@@ -3,9 +3,8 @@
     public class Spanish : Language
     {
         string _path = @"Words\Spanish\Spanish-636.598.txt";
-        string _flowDirection = "left";
-
-        public override string FlowDirection()
+        SourceManager.flowDirections _flowDirection = SourceManager.flowDirections.left;
+        public override SourceManager.flowDirections FlowDirection()
         {
             return _flowDirection;
         }

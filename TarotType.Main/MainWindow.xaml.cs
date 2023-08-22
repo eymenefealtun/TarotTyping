@@ -52,7 +52,7 @@ namespace TarotType.Main
             Preferences.GetPreferences(btnTheme, this, cBoxLanguages);
             _sourceWords = SourceManager.GetLanguageArray(SourceManager.CurrentLanguage);
 
-            if (SourceManager.CurrentLanguage.FlowDirection() == "right")
+            if (SourceManager.CurrentLanguage.FlowDirection() == SourceManager.flowDirections.right)
             {
                 tboxWrite.FlowDirection = FlowDirection.RightToLeft;
                 stckPanel1.FlowDirection = FlowDirection.RightToLeft;
@@ -263,7 +263,7 @@ namespace TarotType.Main
                 labels.Add(lbl);
                 panel.Children.Insert(i, lbl);
 
-                if (SourceManager.CurrentLanguage.FlowDirection() == "right")
+                if (SourceManager.CurrentLanguage.FlowDirection() == SourceManager.flowDirections.right)
                     panel.FlowDirection = FlowDirection.RightToLeft;
                 else
                     panel.FlowDirection = FlowDirection.LeftToRight;
@@ -295,7 +295,7 @@ namespace TarotType.Main
 
             _sourceWords = SourceManager.GetLanguageArray(SourceManager.CurrentLanguage);
 
-            if (SourceManager.CurrentLanguage.FlowDirection() == "right")
+            if (SourceManager.CurrentLanguage.FlowDirection() == SourceManager.flowDirections.right)            
             {
                 tboxWrite.FlowDirection = FlowDirection.RightToLeft;
                 stckPanel1.FlowDirection = FlowDirection.RightToLeft;

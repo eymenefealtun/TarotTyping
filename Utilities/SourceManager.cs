@@ -29,13 +29,6 @@ namespace Utilities
             { new Turkish(), languages.Turkish},
 
         };
-
-        public static string[] GetLanguageArray(Language language)
-        {
-            CurrentLanguage = language;
-            return File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), language.Path())).Split(',');
-        }
-
         public enum languages
         {
             Arabic,
@@ -49,6 +42,16 @@ namespace Utilities
             Spanish,
             Turkish
         }
+        public enum flowDirections
+        {
+            left,
+            right
+        }
 
+        public static string[] GetLanguageArray(Language language)
+        {
+            CurrentLanguage = language;
+            return File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), language.Path())).Split(',');
+        }
     }
 }
