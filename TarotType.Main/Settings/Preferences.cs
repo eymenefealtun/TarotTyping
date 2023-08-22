@@ -21,7 +21,7 @@ namespace TarotType.Main.Settings
 
         public static void SetPreferences()
         {
-            SourceManager.CurrentLanguage = SourceManager._languageDictionary.FirstOrDefault(x => x.Value == LanguageName).Key;
+            SourceManager.CurrentLanguage = SourceManager._languageDictionary.FirstOrDefault(x => x.Value.ToString() == LanguageName).Key;
 
             File.WriteAllText(_prefencePath, string.Empty); //cleans the txt file
 
@@ -43,12 +43,12 @@ namespace TarotType.Main.Settings
                 {
                     ThemeHexCode = reader.ReadLine();
                     LanguageName = reader.ReadLine();
-                    SourceManager.CurrentLanguage = SourceManager._languageDictionary.FirstOrDefault(x => x.Value == LanguageName).Key;
+                    SourceManager.CurrentLanguage = SourceManager._languageDictionary.FirstOrDefault(x => x.Value.ToString() == LanguageName).Key;
 
                     btnTheme.IsChecked = ThemeHexCode == _darkThemeCode ? btnTheme.IsChecked = false : btnTheme.IsChecked = true;
                     mainWindow.Background = (SolidColorBrush)new BrushConverter().ConvertFrom(ThemeHexCode);
 
-                    cBoxLanguages.SelectedValue = SourceManager._languageDictionary.FirstOrDefault(x => x.Value == LanguageName).Value;
+                    cBoxLanguages.SelectedValue = SourceManager._languageDictionary.FirstOrDefault(x => x.Value.ToString() == LanguageName).Value;
                 }
             }
             catch (Exception) { }

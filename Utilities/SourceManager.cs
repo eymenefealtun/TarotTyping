@@ -15,17 +15,19 @@ namespace Utilities
 
         public static Language CurrentLanguage { get; set; }
 
-        public static Dictionary<Language, string> _languageDictionary = new Dictionary<Language, string>()
+        public static Dictionary<Language, languages> _languageDictionary = new Dictionary<Language, languages>()
         {
-            { new English(), "English"},
-            { new Arabic(), "Arabic"},
-            { new Turkish(), "Turkish"},
-            { new Kurdish(), "Kurdish"},      
-            { new Spanish(), "Spanish"},
-            { new French(), "French"},
-            { new Persian(), "Persian"},
-            { new Azerbaijani(), "Azerbaijani"},
-            { new Greek(), "Greek"},
+            { new Arabic(), languages.Arabic},
+            { new Armenian(), languages.Armenian},
+            { new Azerbaijani(), languages.Azerbaijani},
+            { new English(), languages.English},
+            { new French(), languages.French},
+            { new Greek(), languages.Greek},
+            { new Kurdish(), languages.Kurdish},
+            { new Persian(), languages.Persian},
+            { new Spanish(), languages.Spanish},
+            { new Turkish(), languages.Turkish},
+
         };
 
         public static string[] GetLanguageArray(Language language)
@@ -33,5 +35,20 @@ namespace Utilities
             CurrentLanguage = language;
             return File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), language.Path())).Split(',');
         }
+
+        public enum languages
+        {
+            Arabic,
+            Armenian,
+            Azerbaijani,
+            English,
+            French,
+            Greek,
+            Kurdish,
+            Persian,
+            Spanish,
+            Turkish
+        }
+
     }
 }

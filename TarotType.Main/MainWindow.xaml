@@ -36,6 +36,7 @@
                           SelectedValuePath="Content"
                           x:Name="cBoxLanguages">
                     <ComboBoxItem Content="Arabic" />
+                    <ComboBoxItem Content="Armenian" />
                     <ComboBoxItem Content="Azerbaijani" />
                     <ComboBoxItem Content="English" />
                     <ComboBoxItem Content="French" />
