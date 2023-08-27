@@ -3,7 +3,7 @@ name: "Deploy Tarot Typing"
 on:
   push:
      tags:
-        - "TarotTyping v*" 
+        - "v*" 
            
 env:
    PROJECT_PATH: TarotType.Main/TarotType.Main.csproj    
