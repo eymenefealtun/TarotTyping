@@ -62,9 +62,10 @@ namespace TarotType.Main
             RefreshGame();
         }
 
-
+        public bool IsRefreshing = false; 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
+            IsRefreshing = true;
             RefreshGame();
         }
 
