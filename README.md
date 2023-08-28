@@ -1,6 +1,6 @@
 # TarotTyping
 <p align="center">
-  <img src="https://github.com/eymenefealtun/TarotTyping/blob/master/Pictures/Tarot_Typing_600_200.png?raw=true" alt="Sublime's custom image"/>
+  <img src="https://github.com/eymenefealtun/TarotTyping/blob/master/Resources/Tarot_Typing_600_200.png?raw=true" alt="Sublime's custom image"/>
 </p>
 
 <p align="center">
@@ -27,8 +27,8 @@ Tarot Typing is a typing test application calculates WPM and accuracy, written i
 
 :movie_camera:[Video Introduction](https://www.youtube.com/watch?v=5NBBNugTKEs&t=6s):movie_camera:
 
-![](https://github.com/eymenefealtun/TarotType/blob/master/Pictures/readmeGif.gif)
-![](https://github.com/eymenefealtun/TarotType/blob/master/Pictures/resultPicture.PNG)
+![](https://github.com/eymenefealtun/TarotType/blob/master/Resources/readmeGif.gif)
+![](https://github.com/eymenefealtun/TarotType/blob/master/Resources/resultPicture.PNG)
 
 ### Supported Languages
 - [all-words-in-all-languages](https://github.com/eymenefealtun/all-words-in-all-languages)
