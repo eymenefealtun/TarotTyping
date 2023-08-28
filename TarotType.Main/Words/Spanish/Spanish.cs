@@ -1,4 +1,4 @@
-﻿namespace Utilities.Words.Spanish
+﻿namespace TarotType.Main.Utilities.Words.Spanish
 {
     public class Spanish : Language
     {

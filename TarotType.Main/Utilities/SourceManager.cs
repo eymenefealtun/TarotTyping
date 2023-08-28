@@ -1,14 +1,17 @@
 ﻿using System.Reflection;
-using Utilities.Words;
-using Utilities.Words.Azerbaijani;
-using Utilities.Words.French;
-using Utilities.Words.Kurdish;
-using Utilities.Words.Persian;
-using Utilities.Words.Spanish;
-using Utilities.Words.Turkish;
-using Utilities.Words.Greek;
 using System.Collections.Generic;
 using System.IO;
+using TarotType.Main.Utilities.Words;
+using TarotType.Main.Utilities.Words.Azerbaijani;
+using TarotType.Main.Utilities.Words.Turkish;
+using TarotType.Main.Utilities.Words.French;
+using TarotType.Main.Utilities.Words.Kurdish;
+using TarotType.Main.Utilities.Words.Spanish;
+using TarotType.Main.Utilities.Words.Persian;
+using TarotType.Main.Utilities.Words.Arabic;
+using TarotType.Main.Utilities.Words.Armenian;
+using TarotType.Main.Utilities.Words.English;
+using TarotType.Main.Utilities.Words.Greek;
 
 namespace TarotType.Main.Utilities
 {

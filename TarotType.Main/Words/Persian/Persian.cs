@@ -1,5 +1,5 @@
-﻿namespace Utilities.Words.Persian
-{
+﻿namespace TarotType.Main.Utilities.Words.Persian
+{ 
     public class Persian : Language
     {
         string _path = @"Words\Persian\Persian-900.357.txt";

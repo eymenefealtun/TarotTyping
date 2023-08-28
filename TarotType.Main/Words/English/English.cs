@@ -1,5 +1,5 @@
-﻿namespace Utilities.Words.Turkish
-{
+﻿namespace TarotType.Main.Utilities.Words.English
+{       
     public class English : Language
     {
         string _path = @"Words\English\English-300.000.txt";

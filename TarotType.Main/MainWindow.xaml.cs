@@ -6,8 +6,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using TarotType.Main.Settings;
+using TarotType.Main.Utilities;
 using TarotType.Main.View;
-using Utilities;
 
 namespace TarotType.Main
 {

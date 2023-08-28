@@ -1,4 +1,4 @@
-﻿namespace Utilities.Words.Greek
+﻿namespace TarotType.Main.Utilities.Words.Greek
 {
     public class Greek : Language
     {

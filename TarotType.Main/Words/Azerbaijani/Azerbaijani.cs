@@ -1,4 +1,4 @@
-﻿namespace Utilities.Words.Azerbaijani
+﻿namespace TarotType.Main.Utilities.Words.Azerbaijani
 {
     public class Azerbaijani : Language
     {

@@ -1,4 +1,4 @@
-﻿namespace Utilities.Words.Kurdish
+﻿namespace TarotType.Main.Utilities.Words.Kurdish
 {
     public class Kurdish : Language     
     {

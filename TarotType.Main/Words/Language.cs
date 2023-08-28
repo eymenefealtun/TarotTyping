@@ -1,4 +1,4 @@
-﻿namespace Utilities.Words
+﻿namespace TarotType.Main.Utilities.Words
 {
     public abstract class Language
     {
