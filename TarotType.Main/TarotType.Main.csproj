@@ -5,8 +5,9 @@
 		<TargetFramework>net6.0-windows</TargetFramework>
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
-		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 		<PublishSingleFile>true</PublishSingleFile>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<PlatformTarget>x64</PlatformTarget>
 		<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
 	</PropertyGroup>
 
@@ -28,36 +29,47 @@
 	<ItemGroup>
 		<EmbeddedResource Include="Settings\Preference.txt">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 		</EmbeddedResource>
 		<EmbeddedResource Include="Words\Arabic\Arabic-5.691.498.txt">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 		</EmbeddedResource>
 		<EmbeddedResource Include="Words\Armenian\Armenian-981.txt">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 		</EmbeddedResource>
 		<EmbeddedResource Include="Words\Azerbaijani\Azerbaijani-38.503.txt">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 		</EmbeddedResource>
 		<EmbeddedResource Include="Words\English\English-300.000.txt">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory> 
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 		</EmbeddedResource>
 		<EmbeddedResource Include="Words\French\French-336.528.txt">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 		</EmbeddedResource>
 		<EmbeddedResource Include="Words\Greek\Greek-35.279.txt">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 		</EmbeddedResource>
 		<EmbeddedResource Include="Words\Kurdish\Kurdish-959.txt">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 		</EmbeddedResource>
 		<EmbeddedResource Include="Words\Persian\Persian-900.357.txt">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 		</EmbeddedResource>
 		<EmbeddedResource Include="Words\Spanish\Spanish-636.598.txt">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 		</EmbeddedResource>
 		<EmbeddedResource Include="Words\Turkish\Turkish-60.451.txt">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 		</EmbeddedResource>
 	</ItemGroup>
 
