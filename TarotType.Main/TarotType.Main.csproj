@@ -1,72 +1,74 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
-  	  <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<PublishSingleFile>true</PublishSingleFile>
+		<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Fonts\Poppins-Regular.ttf" />
-    <None Remove="Settings\Preference.txt" />
-    <None Remove="Words\Arabic\Arabic-5.691.498.txt" />
-    <None Remove="Words\Armenian\Armenian-981.txt" />
-    <None Remove="Words\Azerbaijani\Azerbaijani-38.503.txt" />
-    <None Remove="Words\English\English-300.000.txt" />
-    <None Remove="Words\French\French-336.528.txt" />
-    <None Remove="Words\Greek\Greek-35.279.txt" />
-    <None Remove="Words\Kurdish\Kurdish-959.txt" />
-    <None Remove="Words\Persian\Persian-900.357.txt" />
-    <None Remove="Words\Spanish\Spanish-636.598.txt" />
-    <None Remove="Words\Turkish\Turkish-60.451.txt" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="Fonts\Poppins-Regular.ttf" />
+		<None Remove="Settings\Preference.txt" />
+		<None Remove="Words\Arabic\Arabic-5.691.498.txt" />
+		<None Remove="Words\Armenian\Armenian-981.txt" />
+		<None Remove="Words\Azerbaijani\Azerbaijani-38.503.txt" />
+		<None Remove="Words\English\English-300.000.txt" />
+		<None Remove="Words\French\French-336.528.txt" />
+		<None Remove="Words\Greek\Greek-35.279.txt" />
+		<None Remove="Words\Kurdish\Kurdish-959.txt" />
+		<None Remove="Words\Persian\Persian-900.357.txt" />
+		<None Remove="Words\Spanish\Spanish-636.598.txt" />
+		<None Remove="Words\Turkish\Turkish-60.451.txt" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="Settings\Preference.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Words\Arabic\Arabic-5.691.498.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Words\Armenian\Armenian-981.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Words\Azerbaijani\Azerbaijani-38.503.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Words\English\English-300.000.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Words\French\French-336.528.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Words\Greek\Greek-35.279.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Words\Kurdish\Kurdish-959.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Words\Persian\Persian-900.357.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Words\Spanish\Spanish-636.598.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Words\Turkish\Turkish-60.451.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Settings\Preference.txt">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="Words\Arabic\Arabic-5.691.498.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="Words\Armenian\Armenian-981.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="Words\Azerbaijani\Azerbaijani-38.503.txt">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="Words\English\English-300.000.txt">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="Words\French\French-336.528.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="Words\Greek\Greek-35.279.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="Words\Kurdish\Kurdish-959.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="Words\Persian\Persian-900.357.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="Words\Spanish\Spanish-636.598.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="Words\Turkish\Turkish-60.451.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
+	</ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="Fonts\Poppins-Regular.ttf" />
-  </ItemGroup>
+	<ItemGroup>
+		<Resource Include="Fonts\Poppins-Regular.ttf" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Update="Settings\TrialTheme.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Update="Settings\TrialTheme.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
 </Project>
