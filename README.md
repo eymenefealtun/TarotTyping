@@ -30,17 +30,20 @@ Tarot Typing is a typing test application calculates WPM and accuracy, written i
 ![](https://github.com/eymenefealtun/TarotType/blob/master/Resources/readmeGif.gif)
 ![](https://github.com/eymenefealtun/TarotType/blob/master/Resources/resultPicture.PNG)
 
-### Supported Languages
+## Supported Languages
 - [all-words-in-all-languages](https://github.com/eymenefealtun/all-words-in-all-languages)
+## How to download?
+- Navigate to [the release page](https://github.com/eymenefealtun/TarotTyping/releases) and click on `TarotType.Main.Exe` within your preferred release.
+## How to clone?
+- `git clone https://github.com/eymenefealtun/TarotTyping.git`
+## Created By: [@eymenefealtun](https://github.com/eymenefealtun)
+* [Linkedin](https://www.linkedin.com/in/eymen-efe-altun-a1681821b)
+* [Youtube](https://www.youtube.com/@eymenefealtunn/videos)
+* [Fiverr](https://www.fiverr.com/eymenefealtun?public_mode=true)
+* [Upwork](https://www.upwork.com/freelancers/~012eff1f3b2a153f38)
+* [Buy me a coffee](https://www.buymeacoffee.com/altuneymenefe) 
 
-### Created By: [@eymenefealtun](https://github.com/eymenefealtun)
-* Linkedin: [@eymenefealtun](https://www.linkedin.com/in/eymen-efe-altun-a1681821b)
-* Fiverr: [eymenefealtun](https://www.fiverr.com/eymenefealtun?public_mode=true)
-* Youtube: [eymenefealtunn](https://www.youtube.com/@eymenefealtunn/videos)
-* Medium: [eymenefealtun](https://medium.com/@eymenefealtun18) 
-* Buy me a coffee: [eymenefealtun](https://www.buymeacoffee.com/altuneymenefe) 
-
-### How to contribute?
+## How to contribute?
  1. [Fork](https://github.com/eymenefealtun/TarotType/fork) the repository.
  2. Make changes.
  3. Submit a pull request.
