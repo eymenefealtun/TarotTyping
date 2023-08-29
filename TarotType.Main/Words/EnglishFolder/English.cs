@@ -1,8 +1,8 @@
-﻿namespace TarotType.Main.Utilities.Words.English
+﻿namespace TarotType.Main.Utilities.Words.EnglishFolder
 {       
     public class English : Language
     {
-        string _path = @"Words\English\English-300.000.txt";
+        string _path = @"Words\EnglishFolder\English.txt";
         SourceManager.flowDirections _flowDirection = SourceManager.flowDirections.left;
         public override SourceManager.flowDirections FlowDirection()
         {

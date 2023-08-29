@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -7,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using TarotType.Main.Settings;
 using TarotType.Main.Utilities;
+using TarotType.Main.Utilities.Words.EnglishFolder;
 using TarotType.Main.View;
 
 namespace TarotType.Main
@@ -32,6 +34,7 @@ namespace TarotType.Main
         bool _isTextBoxChangedCanFire;
         bool _isStartedBefore;
         bool _canComboBoxChangedFired = false;
+        bool _canSettignsChange = false;
 
         string[] _sourceWords;
 
@@ -41,6 +44,7 @@ namespace TarotType.Main
         public MainWindow()
         {
             InitializeComponent();
+
             _words1 = new List<Label>();
             _words2 = new List<Label>();
 
@@ -49,8 +53,15 @@ namespace TarotType.Main
             _dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             _dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
 
-            Preferences.GetPreferences(btnTheme, this, cBoxLanguages);
+
+            SourceManager.CurrentLanguage = new English();
+            Preferences.CurrentTheme = _lightThemeCode;
+            Preferences.LanguageName = "English";
+            cBoxLanguages.SelectedValue = "English";
+
+            //Preferences.GetPreferences(btnTheme, this, cBoxLanguages);
             _sourceWords = SourceManager.GetLanguageArray(SourceManager.CurrentLanguage);
+            //_sourceWords = SourceManager.GetLanguageArray();
 
             if (SourceManager.CurrentLanguage.FlowDirection() == SourceManager.flowDirections.right)
             {
@@ -62,7 +73,7 @@ namespace TarotType.Main
             RefreshGame();
         }
 
-        public bool IsRefreshing = false; 
+        public bool IsRefreshing = false;
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
             IsRefreshing = true;
@@ -240,7 +251,7 @@ namespace TarotType.Main
 
             string[] wordArray = WordManager.GetRandomWord(20, _sourceWords);
 
-            int currentLength = 0;          
+            int currentLength = 0;
 
             for (int i = 0; i < wordArray.Length; i++)
             {
@@ -264,39 +275,32 @@ namespace TarotType.Main
                 labels.Add(lbl);
                 panel.Children.Insert(i, lbl);
 
-                if (SourceManager.CurrentLanguage.FlowDirection() == SourceManager.flowDirections.right)
-                    panel.FlowDirection = FlowDirection.RightToLeft;
-                else
-                    panel.FlowDirection = FlowDirection.LeftToRight;
+                panel.FlowDirection = SourceManager.CurrentLanguage.FlowDirection() == SourceManager.flowDirections.right ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
             }
         }
 
         private void btnTheme_Click(object sender, RoutedEventArgs e)
         {
-            if (btnTheme.IsChecked == false)
-                Preferences.ThemeHexCode = _darkThemeCode;
-            else
-                Preferences.ThemeHexCode = _lightThemeCode;
-
-            SettingsChanged(Preferences.ThemeHexCode, cBoxLanguages.SelectedValue.ToString());
+            Preferences.CurrentTheme = btnTheme.IsChecked == false ? _darkThemeCode : _lightThemeCode;
+            SettingsChanged(Preferences.CurrentTheme, cBoxLanguages.SelectedValue.ToString());
         }
 
         private void cBoxLanguages_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (_canComboBoxChangedFired == false)
-            {
-                _canComboBoxChangedFired = true;
-                return;
-            }
-                            
+            //if (_canComboBoxChangedFired == false)
+            //{
+            //    _canComboBoxChangedFired = true;
+            //    return;
+            //}
 
-            SettingsChanged(Preferences.ThemeHexCode,cBoxLanguages.SelectedValue.ToString());
+
+            SettingsChanged(Preferences.CurrentTheme, cBoxLanguages.SelectedValue.ToString());
 
             Mouse.OverrideCursor = Cursors.Wait;
 
             _sourceWords = SourceManager.GetLanguageArray(SourceManager.CurrentLanguage);
 
-            if (SourceManager.CurrentLanguage.FlowDirection() == SourceManager.flowDirections.right)            
+            if (SourceManager.CurrentLanguage.FlowDirection() == SourceManager.flowDirections.right)
             {
                 tboxWrite.FlowDirection = FlowDirection.RightToLeft;
                 stckPanel1.FlowDirection = FlowDirection.RightToLeft;
@@ -316,12 +320,27 @@ namespace TarotType.Main
 
         private void SettingsChanged(string themeCode, string languageName)
         {
-            Preferences.ThemeHexCode = themeCode;
+            if (_canSettignsChange == false)
+            {
+                _canSettignsChange = true;          
+                return;
+            }
+
+            Preferences.CurrentTheme = themeCode;
             Preferences.LanguageName = languageName;
-            Preferences.SetPreferences();
-            Preferences.GetPreferences(btnTheme, this, cBoxLanguages);
+            SourceManager.CurrentLanguage = SourceManager._languageDictionary.FirstOrDefault(x => x.Value.ToString() == Preferences.LanguageName).Key;
+            this.Background = (SolidColorBrush)new BrushConverter().ConvertFrom(Preferences.CurrentTheme);
+
+
+            //this.Background = (SolidColorBrush)new BrushConverter().ConvertFrom(Preferences.CurrentTheme);
+            //Preferences.SetPreferences();
+            //Preferences.GetPreferences(btnTheme, this, cBoxLanguages);
         }
 
+        private void mainGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 }

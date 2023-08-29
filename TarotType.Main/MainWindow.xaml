@@ -12,7 +12,8 @@
         WindowStartupLocation="CenterScreen"
         Background="#eeeee4">
 
-    <Grid x:Name="mainGrid">
+    <Grid x:Name="mainGrid"
+          Loaded="mainGrid_Loaded">
 
         <Grid>
             <StackPanel Orientation="Horizontal"

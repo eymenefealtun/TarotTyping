@@ -10,17 +10,21 @@ using TarotType.Main.Utilities.Words.Spanish;
 using TarotType.Main.Utilities.Words.Persian;
 using TarotType.Main.Utilities.Words.Arabic;
 using TarotType.Main.Utilities.Words.Armenian;
-using TarotType.Main.Utilities.Words.English;
 using TarotType.Main.Utilities.Words.Greek;
+using TarotType.Main.Utilities.Words.EnglishFolder;
+using TarotType.Main.Properties;
+using System.Resources;
+using TarotType.Main.Settings;
 
 namespace TarotType.Main.Utilities
 {
     public static class SourceManager
     {
 
-        public static Language CurrentLanguage { get; set; }
+        public static Language? CurrentLanguage { get; set; }
 
         public static Dictionary<Language, languages> _languageDictionary = new Dictionary<Language, languages>()
+        //public static Dictionary<Language, string> _languageDictionary = new Dictionary<Language, string>()
         {
             { new Arabic(), languages.Arabic},
             { new Armenian(), languages.Armenian},
@@ -32,6 +36,16 @@ namespace TarotType.Main.Utilities
             { new Persian(), languages.Persian},
             { new Spanish(), languages.Spanish},
             { new Turkish(), languages.Turkish},
+            // { new Arabic(), Resources.Arabic},
+            //{ new Armenian(),  Resources.Armenian},
+            //{ new Azerbaijani(),  Resources.Azerbaijani},
+            //{ new English(),  Resources.English},
+            //{ new French(),  Resources.French},
+            //{ new Greek(),  Resources.Greek},
+            //{ new Kurdish(),  Resources.Kurdish},
+            //{ new Persian(),  Resources.Persian},
+            //{ new Spanish(),  Resources.Spanish},
+            //{ new Turkish(),  Resources.Turkish},
 
         };
         public enum languages
@@ -55,8 +69,10 @@ namespace TarotType.Main.Utilities
 
         public static string[] GetLanguageArray(Language language)
         {
-            CurrentLanguage = language;
-            return File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), language.Path())).Split(',');
+            ResourceManager resources = new ResourceManager(typeof(Resources));
+
+            return resources.GetString(Preferences.LanguageName).Split(',');
         }
+
     }
 }

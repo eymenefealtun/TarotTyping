@@ -2,7 +2,7 @@
 {
     public class Greek : Language
     {
-        string _path = @"Words\Greek\Greek-35.279.txt";
+        string _path = @"Words\Greek\Greek.txt";
         SourceManager.flowDirections _flowDirection = SourceManager.flowDirections.left;
         public override SourceManager.flowDirections FlowDirection()
         {
