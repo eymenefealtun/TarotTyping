@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using TarotType.Main.Utilities.Words;
 using TarotType.Main.Utilities.Words.Azerbaijani;
 using TarotType.Main.Utilities.Words.Turkish;
@@ -12,8 +10,6 @@ using TarotType.Main.Utilities.Words.Arabic;
 using TarotType.Main.Utilities.Words.Armenian;
 using TarotType.Main.Utilities.Words.Greek;
 using TarotType.Main.Utilities.Words.EnglishFolder;
-using TarotType.Main.Properties;
-using System.Resources;
 using TarotType.Main.Settings;
 
 namespace TarotType.Main.Utilities
@@ -24,7 +20,6 @@ namespace TarotType.Main.Utilities
         public static Language? CurrentLanguage { get; set; }
 
         public static Dictionary<Language, languages> _languageDictionary = new Dictionary<Language, languages>()
-        //public static Dictionary<Language, string> _languageDictionary = new Dictionary<Language, string>()
         {
             { new Arabic(), languages.Arabic},
             { new Armenian(), languages.Armenian},
@@ -36,18 +31,8 @@ namespace TarotType.Main.Utilities
             { new Persian(), languages.Persian},
             { new Spanish(), languages.Spanish},
             { new Turkish(), languages.Turkish},
-            // { new Arabic(), Resources.Arabic},
-            //{ new Armenian(),  Resources.Armenian},
-            //{ new Azerbaijani(),  Resources.Azerbaijani},
-            //{ new English(),  Resources.English},
-            //{ new French(),  Resources.French},
-            //{ new Greek(),  Resources.Greek},
-            //{ new Kurdish(),  Resources.Kurdish},
-            //{ new Persian(),  Resources.Persian},
-            //{ new Spanish(),  Resources.Spanish},
-            //{ new Turkish(),  Resources.Turkish},
-
         };
+
         public enum languages
         {
             Arabic,
@@ -61,6 +46,7 @@ namespace TarotType.Main.Utilities
             Spanish,
             Turkish
         }
+
         public enum flowDirections
         {
             left,
@@ -69,9 +55,7 @@ namespace TarotType.Main.Utilities
 
         public static string[] GetLanguageArray(Language language)
         {
-            ResourceManager resources = new ResourceManager(typeof(Resources));
-
-            return resources.GetString(Preferences.LanguageName).Split(',');
+            return MainWindow._resources.GetString(Preferences.LanguageName).Split(',');
         }
 
     }

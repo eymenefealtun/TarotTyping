@@ -6,10 +6,12 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
+using TarotType.Main.Properties;
 using TarotType.Main.Settings;
 using TarotType.Main.Utilities;
 using TarotType.Main.Utilities.Words.EnglishFolder;
 using TarotType.Main.View;
+using System.Resources;
 
 namespace TarotType.Main
 {
@@ -26,7 +28,23 @@ namespace TarotType.Main
         int _numberOfFalseKeyStroke;
 
         int _currentWord1Index = 0;
+
         int _second = 60;
+        public int Second
+        {
+            get
+            {
+                return this._second;
+            }
+            set
+            {
+                _second = value;
+                lblTimer.Content = _second.ToString();
+            }
+        }
+
+
+        int _numberOfWordsInEachCall = 20;
 
         string _targetText;
         string _currentTextOfTextBox;
@@ -35,8 +53,13 @@ namespace TarotType.Main
         bool _isStartedBefore;
         bool _canComboBoxChangedFired = false;
         bool _canSettignsChange = false;
+        public bool IsRefreshing = false;
 
-        string[] _sourceWords;
+
+        public static string[] _sourceWords;
+        public static string[] _resultWordArray;
+        public static Random _random;
+        public static ResourceManager _resources;
 
         string _lightThemeCode = "#eeeee4";
         string _darkThemeCode = "#1e1e1e";
@@ -44,6 +67,9 @@ namespace TarotType.Main
         public MainWindow()
         {
             InitializeComponent();
+
+            _random = new Random();
+            _resources = new ResourceManager(typeof(Resources));
 
             _words1 = new List<Label>();
             _words2 = new List<Label>();
@@ -54,14 +80,18 @@ namespace TarotType.Main
             _dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
 
 
+            //_second = 60;
+
             SourceManager.CurrentLanguage = new English();
             Preferences.CurrentTheme = _lightThemeCode;
-            Preferences.LanguageName = "English";
-            cBoxLanguages.SelectedValue = "English";
 
-            //Preferences.GetPreferences(btnTheme, this, cBoxLanguages);
+            string initialLanguageName = nameof(English);
+
+            Preferences.LanguageName = initialLanguageName;
+            cBoxLanguages.SelectedValue = initialLanguageName;
+
             _sourceWords = SourceManager.GetLanguageArray(SourceManager.CurrentLanguage);
-            //_sourceWords = SourceManager.GetLanguageArray();
+            _resultWordArray = new string[_numberOfWordsInEachCall];
 
             if (SourceManager.CurrentLanguage.FlowDirection() == SourceManager.flowDirections.right)
             {
@@ -73,7 +103,6 @@ namespace TarotType.Main
             RefreshGame();
         }
 
-        public bool IsRefreshing = false;
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
             IsRefreshing = true;
@@ -82,11 +111,9 @@ namespace TarotType.Main
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            lblTimer.Content = _second.ToString();
-            _second--;
-            lblTimer.Content = _second.ToString();
+            Second--;
 
-            if (_second == 0)
+            if (Second == 0)
             {
                 tboxWrite.IsEnabled = false;
                 ResultWindow resultWindow = new ResultWindow(_numberOfTrueWords, _numberOfWrongWords, _numberOfTrueWords, _numberOfKeyStroke, _numberOfTrueKeyStroke, _numberOfFalseKeyStroke);
@@ -95,15 +122,13 @@ namespace TarotType.Main
 
                 RefreshGame();
             }
-
         }
 
         private void tboxWrite_TextChanged(object sender, TextChangedEventArgs e)
         {
             _currentTextOfTextBox = tboxWrite.Text;
 
-
-            if (!_isStartedBefore && tboxWrite.Text != " " && tboxWrite.Text != "")
+            if (!_isStartedBefore && !string.IsNullOrWhiteSpace(tboxWrite.Text))
             {
                 _isStartedBefore = true;
                 _dispatcherTimer.Start();
@@ -123,12 +148,12 @@ namespace TarotType.Main
                 string currentTargetText = _targetText.Substring(0, currentLegth);
 
                 if (currentTargetText != _currentTextOfTextBox)
-                    CurrentTextWrong(_words1[_currentWord1Index]);
+                    CurrentTextFalse(_words1[_currentWord1Index]);
                 else
-                    CurrentTextTrue(_words1[_currentWord1Index]);
+                    CurrentTextRight(_words1[_currentWord1Index]);
             }
             else
-                CurrentTextWrong(_words1[_currentWord1Index]);
+                CurrentTextFalse(_words1[_currentWord1Index]);
 
         }
 
@@ -155,15 +180,15 @@ namespace TarotType.Main
                 _isTextBoxChangedCanFire = false;
 
                 if (_currentTextOfTextBox == _targetText)
-                    TextDoneTrue(_words1[_currentWord1Index], _words1[_currentWord1Index + 1]);
+                    MarkedAsCorrect(_words1[_currentWord1Index], _words1[_currentWord1Index + 1]);
                 else
-                    TextDoneWrong(_words1[_currentWord1Index], _words1[_currentWord1Index + 1]);
+                    MarkedAsIncorrect(_words1[_currentWord1Index], _words1[_currentWord1Index + 1]);
             }
             else
                 _isTextBoxChangedCanFire = true;
         }
 
-        private void TextDoneTrue(Label lbl, Label nextLabel)
+        private void MarkedAsCorrect(Label lbl, Label nextLabel)
         {
             _numberOfTrueWords++;
 
@@ -174,7 +199,7 @@ namespace TarotType.Main
             _currentWord1Index++;
         }
 
-        private void TextDoneWrong(Label lbl, Label nextLabel)
+        private void MarkedAsIncorrect(Label lbl, Label nextLabel)
         {
             _numberOfWrongWords++;
 
@@ -185,17 +210,17 @@ namespace TarotType.Main
             _currentWord1Index++;
         }
 
-        private void CurrentTextWrong(Label lbl)
+        private void CurrentTextFalse(Label lbl)
         {
             lbl.Background = Brushes.Red;
             _numberOfFalseKeyStroke++;
         }
 
-        private void CurrentTextTrue(Label lbl)
+        private void CurrentTextRight(Label lbl)
         {
             lbl.Background = Brushes.LightGray;
             _numberOfTrueKeyStroke++;
-        }
+        }               
 
         private void GetAnotherStack(List<Label> words2)
         {
@@ -243,22 +268,21 @@ namespace TarotType.Main
 
         }
 
-
         private void RefreshStack(StackPanel panel, List<Label> labels)
         {
             panel.Children.Clear();
             labels.Clear();
 
-            string[] wordArray = WordManager.GetRandomWord(20, _sourceWords);
+            _resultWordArray = WordManager.GetRandomWord(_numberOfWordsInEachCall);
 
             int currentLength = 0;
 
-            for (int i = 0; i < wordArray.Length; i++)
+            for (int i = 0; i < _resultWordArray.Length; i++)
             {
 
                 Label lbl = new Label();
                 lbl.Background = i == 0 && labels == _words1 ? Brushes.LightGray : Brushes.Transparent; //First word set to Light Gray
-                lbl.Content = wordArray[i];
+                lbl.Content = _resultWordArray[i];
                 lbl.Style = (Style)FindResource("MainTextBlockTheme");
                 //Calculations in order not to break the size limit of stack panel.
 
@@ -287,12 +311,6 @@ namespace TarotType.Main
 
         private void cBoxLanguages_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //if (_canComboBoxChangedFired == false)
-            //{
-            //    _canComboBoxChangedFired = true;
-            //    return;
-            //}
-
 
             SettingsChanged(Preferences.CurrentTheme, cBoxLanguages.SelectedValue.ToString());
 
@@ -300,18 +318,12 @@ namespace TarotType.Main
 
             _sourceWords = SourceManager.GetLanguageArray(SourceManager.CurrentLanguage);
 
-            if (SourceManager.CurrentLanguage.FlowDirection() == SourceManager.flowDirections.right)
-            {
-                tboxWrite.FlowDirection = FlowDirection.RightToLeft;
-                stckPanel1.FlowDirection = FlowDirection.RightToLeft;
-                stckPanel1.FlowDirection = FlowDirection.RightToLeft;
-            }
-            else
-            {
-                tboxWrite.FlowDirection = FlowDirection.LeftToRight;
-                stckPanel1.FlowDirection = FlowDirection.LeftToRight;
-                stckPanel1.FlowDirection = FlowDirection.LeftToRight;
-            }
+
+            FlowDirection flowDirection = SourceManager.CurrentLanguage.FlowDirection() == SourceManager.flowDirections.right ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
+
+            tboxWrite.FlowDirection = flowDirection;
+            stckPanel1.FlowDirection = flowDirection;
+            stckPanel1.FlowDirection = flowDirection;
 
             RefreshGame();
 
@@ -322,7 +334,7 @@ namespace TarotType.Main
         {
             if (_canSettignsChange == false)
             {
-                _canSettignsChange = true;          
+                _canSettignsChange = true;
                 return;
             }
 
@@ -331,16 +343,8 @@ namespace TarotType.Main
             SourceManager.CurrentLanguage = SourceManager._languageDictionary.FirstOrDefault(x => x.Value.ToString() == Preferences.LanguageName).Key;
             this.Background = (SolidColorBrush)new BrushConverter().ConvertFrom(Preferences.CurrentTheme);
 
-
-            //this.Background = (SolidColorBrush)new BrushConverter().ConvertFrom(Preferences.CurrentTheme);
-            //Preferences.SetPreferences();
-            //Preferences.GetPreferences(btnTheme, this, cBoxLanguages);
         }
-
-        private void mainGrid_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
+      
     }
 
 }
