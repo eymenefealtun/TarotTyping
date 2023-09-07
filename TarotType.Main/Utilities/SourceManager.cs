@@ -11,11 +11,19 @@ using TarotType.Main.Utilities.Words.Armenian;
 using TarotType.Main.Utilities.Words.Greek;
 using TarotType.Main.Utilities.Words.EnglishFolder;
 using TarotType.Main.Settings;
+using TarotType.Main.Properties;
+using System.Resources;
 
 namespace TarotType.Main.Utilities
 {
-    public static class SourceManager
+    public class SourceManager
     {
+        public static ResourceManager _resources;
+        public SourceManager()
+        {
+            _resources = new ResourceManager(typeof(Resources));
+        }
+
 
         public static Language? CurrentLanguage { get; set; }
 
@@ -31,6 +39,7 @@ namespace TarotType.Main.Utilities
             { new Persian(), languages.Persian},
             { new Spanish(), languages.Spanish},
             { new Turkish(), languages.Turkish},
+            { new Georgian(), languages.Georgian},
         };
 
         public enum languages
@@ -44,7 +53,8 @@ namespace TarotType.Main.Utilities
             Kurdish,
             Persian,
             Spanish,
-            Turkish
+            Turkish,
+            Georgian
         }
 
         public enum flowDirections
@@ -55,7 +65,7 @@ namespace TarotType.Main.Utilities
 
         public static string[] GetLanguageArray(Language language)
         {
-            return MainWindow._resources.GetString(Preferences.LanguageName).Split(',');
+            return _resources.GetString(Preferences.LanguageName).Split(',');
         }
 
     }

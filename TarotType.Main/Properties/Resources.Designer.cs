@@ -135,5 +135,12 @@ namespace TarotType.Main.Properties {
                 return ResourceManager.GetString("Arabic", resourceCulture);
             }
         }
+        internal static string Georgian
+        {
+            get
+            {
+                return ResourceManager.GetString("Georgian", resourceCulture);      
+            }
+        }
     }
 }
