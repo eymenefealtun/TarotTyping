@@ -282,7 +282,7 @@ namespace TarotType.Main
 
             _resultWordArray = WordManager.GetRandomWord();
 
-            int currentLength = 0;
+            int currentLength = 10;
 
 
 

@@ -40,6 +40,7 @@ namespace TarotType.Main.Utilities
             { new Spanish(), languages.Spanish},
             { new Turkish(), languages.Turkish},
             { new Georgian(), languages.Georgian},
+            { new Bulgarian(), languages.Bulgarian},
         };
 
         public enum languages
@@ -54,7 +55,8 @@ namespace TarotType.Main.Utilities
             Persian,
             Spanish,
             Turkish,
-            Georgian
+            Georgian,
+            Bulgarian
         }
 
         public enum flowDirections
