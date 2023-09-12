@@ -7,10 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
-using TarotType.Main.Properties;
 using TarotType.Main.Utilities;
-using TarotType.Main.Utilities.Words;
-using TarotType.Main.Utilities.Words.EnglishFolder;
 
 namespace TarotType.Main.Settings
 {

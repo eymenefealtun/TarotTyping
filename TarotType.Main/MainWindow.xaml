@@ -39,6 +39,7 @@
                     <ComboBoxItem Content="Armenian" />
                     <ComboBoxItem Content="Azerbaijani" />
                     <ComboBoxItem Content="Bulgarian" />
+                    <ComboBoxItem Content="Chinese" />
                     <ComboBoxItem Content="English" />
                     <ComboBoxItem Content="French" />
                     <ComboBoxItem Content="Georgian" />

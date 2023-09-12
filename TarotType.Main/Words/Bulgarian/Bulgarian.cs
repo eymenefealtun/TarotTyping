@@ -1,4 +1,4 @@
-﻿namespace TarotType.Main.Utilities.Words.Azerbaijani
+﻿namespace TarotType.Main.Utilities.Words.Bulgarian
 {
     public class Bulgarian : Language
     {

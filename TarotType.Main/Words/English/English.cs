@@ -1,4 +1,4 @@
-﻿namespace TarotType.Main.Utilities.Words.EnglishFolder
+﻿namespace TarotType.Main.Utilities.Words.English
 {       
     public class English : Language
     {

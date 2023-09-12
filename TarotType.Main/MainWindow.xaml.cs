@@ -8,7 +8,7 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using TarotType.Main.Settings;
 using TarotType.Main.Utilities;
-using TarotType.Main.Utilities.Words.EnglishFolder;
+using TarotType.Main.Utilities.Words.English;
 using TarotType.Main.View;
 
 namespace TarotType.Main

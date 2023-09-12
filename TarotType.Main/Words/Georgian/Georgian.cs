@@ -1,4 +1,4 @@
-﻿namespace TarotType.Main.Utilities.Words.Greek
+﻿namespace TarotType.Main.Utilities.Words.Georgian
 {
     public class Georgian : Language
     {
