@@ -46,6 +46,7 @@
                     <ComboBoxItem Content="Greek" />
                     <ComboBoxItem Content="Kurdish" />
                     <ComboBoxItem Content="Persian" />
+                    <ComboBoxItem Content="Serbian" />
                     <ComboBoxItem Content="Spanish" />
                     <ComboBoxItem Content="Turkish" />
                 </ComboBox>
