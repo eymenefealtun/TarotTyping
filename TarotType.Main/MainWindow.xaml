@@ -48,6 +48,7 @@
                     <ComboBoxItem Content="Persian" />
                     <ComboBoxItem Content="Serbian" />
                     <ComboBoxItem Content="Spanish" />
+                    <ComboBoxItem Content="Swedish" />
                     <ComboBoxItem Content="Turkish" />
                 </ComboBox>
             </StackPanel>

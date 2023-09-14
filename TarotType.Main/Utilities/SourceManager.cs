@@ -17,6 +17,8 @@ using TarotType.Main.Utilities.Words.Georgian;
 using TarotType.Main.Utilities.Words.English;
 using TarotType.Main.Utilities.Words.Chinese;
 using TarotType.Main.Words.Serbian;
+using System.Windows.Media;
+using TarotType.Main.Utilities.Words.Swedish;
 
 namespace TarotType.Main.Utilities
 {
@@ -47,6 +49,7 @@ namespace TarotType.Main.Utilities
             { new Bulgarian(), languages.Bulgarian},
             { new Chinese(), languages.Chinese},
             { new Serbian(), languages.Serbian},
+            { new Swedish(), languages.Swedish},
         };
 
         public enum languages
@@ -64,7 +67,8 @@ namespace TarotType.Main.Utilities
             Georgian,
             Bulgarian,
             Chinese,
-            Serbian
+            Serbian,
+            Swedish
         }
 
         public enum flowDirections
