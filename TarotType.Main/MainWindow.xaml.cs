@@ -363,6 +363,7 @@ namespace TarotType.Main
 
             Preferences.CurrentTheme = themeCode;
             Preferences.LanguageName = languageName;
+            //SourceManager.CurrentLanguage = SourceManager._languageDictionary.FirstOrDefault(x => x.Value.ToString() == Preferences.LanguageName).Key;
             SourceManager.CurrentLanguage = SourceManager._languageDictionary.FirstOrDefault(x => x.Value.ToString() == Preferences.LanguageName).Key;
             this.Background = (SolidColorBrush)new BrushConverter().ConvertFrom(Preferences.CurrentTheme);
 

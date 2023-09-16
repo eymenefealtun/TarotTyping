@@ -19,6 +19,7 @@ using TarotType.Main.Utilities.Words.Chinese;
 using TarotType.Main.Words.Serbian;
 using System.Windows.Media;
 using TarotType.Main.Utilities.Words.Swedish;
+using TarotType.Main.Utilities.Words.Finnish;
 
 namespace TarotType.Main.Utilities
 {
@@ -38,18 +39,20 @@ namespace TarotType.Main.Utilities
             { new Arabic(), languages.Arabic},
             { new Armenian(), languages.Armenian},
             { new Azerbaijani(), languages.Azerbaijani},
+            { new Bulgarian(), languages.Bulgarian},
+            { new Chinese(), languages.Chinese},
             { new English(), languages.English},
+            { new Finnish(), languages.Finnish},
             { new French(), languages.French},
+            { new Georgian(), languages.Georgian},
             { new Greek(), languages.Greek},
             { new Kurdish(), languages.Kurdish},
             { new Persian(), languages.Persian},
-            { new Spanish(), languages.Spanish},
-            { new Turkish(), languages.Turkish},
-            { new Georgian(), languages.Georgian},
-            { new Bulgarian(), languages.Bulgarian},
-            { new Chinese(), languages.Chinese},
             { new Serbian(), languages.Serbian},
+            { new Spanish(), languages.Spanish},
             { new Swedish(), languages.Swedish},
+            { new Turkish(), languages.Turkish},
+
         };
 
         public enum languages
@@ -57,18 +60,19 @@ namespace TarotType.Main.Utilities
             Arabic,
             Armenian,
             Azerbaijani,
+            Bulgarian,
+            Chinese,
             English,
+            Finnish,
             French,
+            Georgian,
             Greek,
             Kurdish,
             Persian,
-            Spanish,
-            Turkish,
-            Georgian,
-            Bulgarian,
-            Chinese,
             Serbian,
-            Swedish
+            Spanish,
+            Swedish,
+            Turkish
         }
 
         public enum flowDirections

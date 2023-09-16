@@ -41,6 +41,7 @@
                     <ComboBoxItem Content="Bulgarian" />
                     <ComboBoxItem Content="Chinese" />
                     <ComboBoxItem Content="English" />
+                    <ComboBoxItem Content="Finnish" />
                     <ComboBoxItem Content="French" />
                     <ComboBoxItem Content="Georgian" />
                     <ComboBoxItem Content="Greek" />
