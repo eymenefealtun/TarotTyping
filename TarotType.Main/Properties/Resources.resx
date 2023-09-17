@@ -148,6 +148,9 @@
   <data name="Greek" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Words\Greek\Greek.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Hebrew" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Words\Hebrew\Hebrew.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="Kurdish" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Words\Kurdish\Kurdish.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>

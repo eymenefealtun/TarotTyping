@@ -17,9 +17,9 @@ using TarotType.Main.Utilities.Words.Georgian;
 using TarotType.Main.Utilities.Words.English;
 using TarotType.Main.Utilities.Words.Chinese;
 using TarotType.Main.Words.Serbian;
-using System.Windows.Media;
 using TarotType.Main.Utilities.Words.Swedish;
 using TarotType.Main.Utilities.Words.Finnish;
+using TarotType.Main.Utilities.Words.Hebrew;
 
 namespace TarotType.Main.Utilities
 {
@@ -46,6 +46,7 @@ namespace TarotType.Main.Utilities
             { new French(), languages.French},
             { new Georgian(), languages.Georgian},
             { new Greek(), languages.Greek},
+            { new Hebrew(), languages.Hebrew},
             { new Kurdish(), languages.Kurdish},
             { new Persian(), languages.Persian},
             { new Serbian(), languages.Serbian},
@@ -67,6 +68,7 @@ namespace TarotType.Main.Utilities
             French,
             Georgian,
             Greek,
+            Hebrew,
             Kurdish,
             Persian,
             Serbian,
