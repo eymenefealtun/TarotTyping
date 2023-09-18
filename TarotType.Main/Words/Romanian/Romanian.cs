@@ -1,9 +1,12 @@
-﻿namespace TarotType.Main.Utilities.Words.Kurdish
+﻿namespace TarotType.Main.Utilities.Words.Romanian
 {
-    public class Kurdish : Language     
+    public class Romanian : Language
     {
-        string _path = @"Words\Kurdish\Kurdish.txt";
+
+        string _path = @"Words\Romanian\Romanian.txt";
+        
         SourceManager.flowDirections _flowDirection = SourceManager.flowDirections.left;
+
         public override SourceManager.flowDirections FlowDirection()
         {
             return _flowDirection;

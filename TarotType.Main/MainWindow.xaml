@@ -48,6 +48,7 @@
                     <ComboBoxItem Content="Hebrew" />
                     <ComboBoxItem Content="Kurdish" />
                     <ComboBoxItem Content="Persian" />
+                    <ComboBoxItem Content="Romanian" />
                     <ComboBoxItem Content="Serbian" />
                     <ComboBoxItem Content="Spanish" />
                     <ComboBoxItem Content="Swedish" />

@@ -20,6 +20,7 @@ using TarotType.Main.Words.Serbian;
 using TarotType.Main.Utilities.Words.Swedish;
 using TarotType.Main.Utilities.Words.Finnish;
 using TarotType.Main.Utilities.Words.Hebrew;
+using TarotType.Main.Utilities.Words.Romanian;
 
 namespace TarotType.Main.Utilities
 {
@@ -49,6 +50,7 @@ namespace TarotType.Main.Utilities
             { new Hebrew(), languages.Hebrew},
             { new Kurdish(), languages.Kurdish},
             { new Persian(), languages.Persian},
+            { new Romanian(), languages.Romanian},
             { new Serbian(), languages.Serbian},
             { new Spanish(), languages.Spanish},
             { new Swedish(), languages.Swedish},
@@ -71,6 +73,7 @@ namespace TarotType.Main.Utilities
             Hebrew,
             Kurdish,
             Persian,
+            Romanian,
             Serbian,
             Spanish,
             Swedish,
