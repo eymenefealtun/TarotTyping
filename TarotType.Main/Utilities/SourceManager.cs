@@ -21,6 +21,7 @@ using TarotType.Main.Utilities.Words.Swedish;
 using TarotType.Main.Utilities.Words.Finnish;
 using TarotType.Main.Utilities.Words.Hebrew;
 using TarotType.Main.Utilities.Words.Romanian;
+using TarotType.Main.Words.German;
 
 namespace TarotType.Main.Utilities
 {
@@ -46,6 +47,7 @@ namespace TarotType.Main.Utilities
             { new Finnish(), languages.Finnish},
             { new French(), languages.French},
             { new Georgian(), languages.Georgian},
+            { new German(), languages.German},
             { new Greek(), languages.Greek},
             { new Hebrew(), languages.Hebrew},
             { new Kurdish(), languages.Kurdish},
@@ -69,6 +71,7 @@ namespace TarotType.Main.Utilities
             Finnish,
             French,
             Georgian,
+            German,
             Greek,
             Hebrew,
             Kurdish,
