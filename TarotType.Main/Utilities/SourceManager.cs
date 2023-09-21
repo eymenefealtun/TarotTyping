@@ -23,6 +23,7 @@ using TarotType.Main.Utilities.Words.Hebrew;
 using TarotType.Main.Utilities.Words.Romanian;
 using TarotType.Main.Words.German;
 using TarotType.Main.Utilities.Words.Italian;
+using TarotType.Main.Words.Vietnamese;
 
 namespace TarotType.Main.Utilities
 {
@@ -59,6 +60,7 @@ namespace TarotType.Main.Utilities
             { new Spanish(), languages.Spanish},
             { new Swedish(), languages.Swedish},
             { new Turkish(), languages.Turkish},
+            { new Vietnamese(), languages.Vietnamese},
 
         };
 
@@ -83,7 +85,8 @@ namespace TarotType.Main.Utilities
             Serbian,
             Spanish,
             Swedish,
-            Turkish
+            Turkish,
+            Vietnamese
         }
 
         public enum flowDirections

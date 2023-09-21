@@ -55,6 +55,7 @@
                     <ComboBoxItem Content="Spanish" />
                     <ComboBoxItem Content="Swedish" />
                     <ComboBoxItem Content="Turkish" />
+                    <ComboBoxItem Content="Vietnamese" />
                 </ComboBox>
             </StackPanel>
             <StackPanel VerticalAlignment="Center"
