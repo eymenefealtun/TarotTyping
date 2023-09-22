@@ -24,6 +24,7 @@ using TarotType.Main.Utilities.Words.Romanian;
 using TarotType.Main.Words.German;
 using TarotType.Main.Utilities.Words.Italian;
 using TarotType.Main.Words.Vietnamese;
+using TarotType.Main.Utilities.Words.Portuguese;
 
 namespace TarotType.Main.Utilities
 {
@@ -55,6 +56,7 @@ namespace TarotType.Main.Utilities
             { new Italian(), languages.Italian},
             { new Kurdish(), languages.Kurdish},
             { new Persian(), languages.Persian},
+            { new Portuguese(), languages.Portuguese},
             { new Romanian(), languages.Romanian},
             { new Serbian(), languages.Serbian},
             { new Spanish(), languages.Spanish},
@@ -81,6 +83,7 @@ namespace TarotType.Main.Utilities
             Italian,
             Kurdish,
             Persian,
+            Portuguese,
             Romanian,
             Serbian,
             Spanish,
