@@ -47,6 +47,7 @@
                     <ComboBoxItem Content="German" />
                     <ComboBoxItem Content="Greek" />
                     <ComboBoxItem Content="Hebrew" />
+                    <ComboBoxItem Content="Hindi" />
                     <ComboBoxItem Content="Italian" />
                     <ComboBoxItem Content="Kurdish" />
                     <ComboBoxItem Content="Persian" />
