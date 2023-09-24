@@ -172,6 +172,9 @@
   <data name="Romanian" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Words\Romanian\Romanian.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Russian" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Words\Russian\Russian.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="Serbian" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Words\Serbian\Serbian.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>

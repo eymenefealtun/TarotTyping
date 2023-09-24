@@ -53,6 +53,7 @@
                     <ComboBoxItem Content="Persian" />
                     <ComboBoxItem Content="Portuguese" />
                     <ComboBoxItem Content="Romanian" />
+                    <ComboBoxItem Content="Russian" />
                     <ComboBoxItem Content="Serbian" />
                     <ComboBoxItem Content="Spanish" />
                     <ComboBoxItem Content="Swedish" />
