@@ -26,6 +26,8 @@ using TarotType.Main.Utilities.Words.Italian;
 using TarotType.Main.Words.Vietnamese;
 using TarotType.Main.Utilities.Words.Portuguese;
 using TarotType.Main.Words.Hindi;
+using TarotType.Main.Words.Russian;
+using TarotType.Main.Words.Bengali;
 
 namespace TarotType.Main.Utilities
 {
@@ -45,13 +47,14 @@ namespace TarotType.Main.Utilities
             { new Arabic(), languages.Arabic},
             { new Armenian(), languages.Armenian},
             { new Azerbaijani(), languages.Azerbaijani},
+            { new Bengali(), languages.Bengali},
             { new Bulgarian(), languages.Bulgarian},
             { new Chinese(), languages.Chinese},
             { new English(), languages.English},
             { new Finnish(), languages.Finnish},
             { new French(), languages.French},
             { new Georgian(), languages.Georgian},
-            { new Russian(), languages.German},
+            { new German(), languages.German},
             { new Greek(), languages.Greek},
             { new Hebrew(), languages.Hebrew},
             { new Hindi(), languages.Hindi},
@@ -74,6 +77,7 @@ namespace TarotType.Main.Utilities
             Arabic,
             Armenian,
             Azerbaijani,
+            Bengali,
             Bulgarian,
             Chinese,
             English,

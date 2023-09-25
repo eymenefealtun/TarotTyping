@@ -3,7 +3,7 @@ using TarotType.Main.Utilities.Words;
 
 namespace TarotType.Main.Words.German
 {
-    public class Russian : Language
+    public class German : Language
     {
         SourceManager.flowDirections _flowDirection = SourceManager.flowDirections.left;
         string _path = @"Words\German\German.txt";
