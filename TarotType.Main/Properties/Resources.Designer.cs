@@ -79,6 +79,13 @@ namespace TarotType.Main.Properties {
                 return ResourceManager.GetString("Vietnamese", resourceCulture);
             }
         }
+        internal static string Japanese
+        {
+            get
+            {
+                return ResourceManager.GetString("Japanese", resourceCulture);
+            }
+        }
         internal static string Hindi
         {
             get

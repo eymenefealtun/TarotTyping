@@ -50,6 +50,7 @@
                     <ComboBoxItem Content="Hebrew" />
                     <ComboBoxItem Content="Hindi" />
                     <ComboBoxItem Content="Italian" />
+                    <ComboBoxItem Content="Japanese" />
                     <ComboBoxItem Content="Kurdish" />
                     <ComboBoxItem Content="Persian" />
                     <ComboBoxItem Content="Portuguese" />

@@ -28,6 +28,7 @@ using TarotType.Main.Utilities.Words.Portuguese;
 using TarotType.Main.Words.Hindi;
 using TarotType.Main.Words.Russian;
 using TarotType.Main.Words.Bengali;
+using TarotType.Main.Utilities.Words.Japanese;
 
 namespace TarotType.Main.Utilities
 {
@@ -59,6 +60,7 @@ namespace TarotType.Main.Utilities
             { new Hebrew(), languages.Hebrew},
             { new Hindi(), languages.Hindi},
             { new Italian(), languages.Italian},
+            { new Japanese(), languages.Japanese},
             { new Kurdish(), languages.Kurdish},
             { new Persian(), languages.Persian},
             { new Portuguese(), languages.Portuguese},
@@ -89,6 +91,7 @@ namespace TarotType.Main.Utilities
             Hebrew,
             Hindi,
             Italian,
+            Japanese,
             Kurdish,
             Persian,
             Portuguese,
