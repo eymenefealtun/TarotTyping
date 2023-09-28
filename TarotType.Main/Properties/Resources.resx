@@ -193,6 +193,9 @@
   <data name="Turkish" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Words\Turkish\Turkish.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Urdu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Words\Urdu\Urdu.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="Vietnamese" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Words\Vietnamese\Vietnamese.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>

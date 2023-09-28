@@ -60,6 +60,7 @@
                     <ComboBoxItem Content="Spanish" />
                     <ComboBoxItem Content="Swedish" />
                     <ComboBoxItem Content="Turkish" />
+                    <ComboBoxItem Content="Urdu" />
                     <ComboBoxItem Content="Vietnamese" />
                 </ComboBox>
             </StackPanel>

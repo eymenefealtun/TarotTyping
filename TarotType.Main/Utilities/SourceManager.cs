@@ -29,6 +29,7 @@ using TarotType.Main.Words.Hindi;
 using TarotType.Main.Words.Russian;
 using TarotType.Main.Words.Bengali;
 using TarotType.Main.Utilities.Words.Japanese;
+using TarotType.Main.Words.Urdu;
 
 namespace TarotType.Main.Utilities
 {
@@ -70,6 +71,7 @@ namespace TarotType.Main.Utilities
             { new Spanish(), languages.Spanish},
             { new Swedish(), languages.Swedish},
             { new Turkish(), languages.Turkish},
+            { new Urdu(), languages.Urdu},
             { new Vietnamese(), languages.Vietnamese},
 
         };
@@ -101,6 +103,7 @@ namespace TarotType.Main.Utilities
             Spanish,
             Swedish,
             Turkish,
+            Urdu,
             Vietnamese
         }
 
