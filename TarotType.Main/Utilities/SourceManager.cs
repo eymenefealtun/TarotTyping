@@ -30,6 +30,7 @@ using TarotType.Main.Words.Russian;
 using TarotType.Main.Words.Bengali;
 using TarotType.Main.Utilities.Words.Japanese;
 using TarotType.Main.Words.Urdu;
+using TarotType.Main.Words.Indonesian;
 
 namespace TarotType.Main.Utilities
 {
@@ -60,6 +61,7 @@ namespace TarotType.Main.Utilities
             { new Greek(), languages.Greek},
             { new Hebrew(), languages.Hebrew},
             { new Hindi(), languages.Hindi},
+            { new Indonesian(), languages.Indonesian},
             { new Italian(), languages.Italian},
             { new Japanese(), languages.Japanese},
             { new Kurdish(), languages.Kurdish},
@@ -92,6 +94,7 @@ namespace TarotType.Main.Utilities
             Greek,
             Hebrew,
             Hindi,
+            Indonesian,
             Italian,
             Japanese,
             Kurdish,
