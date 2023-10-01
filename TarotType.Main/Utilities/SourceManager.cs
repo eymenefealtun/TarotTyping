@@ -31,6 +31,7 @@ using TarotType.Main.Words.Bengali;
 using TarotType.Main.Utilities.Words.Japanese;
 using TarotType.Main.Words.Urdu;
 using TarotType.Main.Words.Indonesian;
+using TarotType.Main.Utilities.Words.Czech;
 
 namespace TarotType.Main.Utilities
 {
@@ -53,6 +54,7 @@ namespace TarotType.Main.Utilities
             { new Bengali(), languages.Bengali},
             { new Bulgarian(), languages.Bulgarian},
             { new Chinese(), languages.Chinese},
+            { new Czech(), languages.Czech},
             { new English(), languages.English},
             { new Finnish(), languages.Finnish},
             { new French(), languages.French},
@@ -86,6 +88,7 @@ namespace TarotType.Main.Utilities
             Bengali,
             Bulgarian,
             Chinese,
+            Czech,
             English,
             Finnish,
             French,
