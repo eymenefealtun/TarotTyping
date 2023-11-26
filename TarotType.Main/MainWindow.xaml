@@ -35,37 +35,77 @@
                           SelectionChanged="cBoxLanguages_SelectionChanged"
                           SelectedValuePath="Content"
                           x:Name="cBoxLanguages">
+                    <ComboBoxItem Content="Afrikaans" />
                     <ComboBoxItem Content="Arabic" />
                     <ComboBoxItem Content="Armenian" />
                     <ComboBoxItem Content="Azerbaijani" />
+                    <ComboBoxItem Content="Belarusian" />
                     <ComboBoxItem Content="Bengali" />
+                    <ComboBoxItem Content="Bosnian" />
                     <ComboBoxItem Content="Bulgarian" />
+                    <ComboBoxItem Content="Catalan" />
                     <ComboBoxItem Content="Chinese" />
+                    <ComboBoxItem Content="Croatian" />
                     <ComboBoxItem Content="Czech" />
+                    <ComboBoxItem Content="Danish" />
+                    <ComboBoxItem Content="Dutch" />
                     <ComboBoxItem Content="English" />
+                    <ComboBoxItem Content="Esperanto" />
+                    <ComboBoxItem Content="Estonian" />
+                    <ComboBoxItem Content="Filipino" />
                     <ComboBoxItem Content="Finnish" />
                     <ComboBoxItem Content="French" />
+                    <ComboBoxItem Content="Frisian" />
+                    <ComboBoxItem Content="Galician" />
                     <ComboBoxItem Content="Georgian" />
                     <ComboBoxItem Content="German" />
                     <ComboBoxItem Content="Greek" />
+                    <ComboBoxItem Content="Hawaiian" />
                     <ComboBoxItem Content="Hebrew" />
                     <ComboBoxItem Content="Hindi" />
+                    <ComboBoxItem Content="Hmong" />
+                    <ComboBoxItem Content="Hungarian" />
+                    <ComboBoxItem Content="Icelandic" />
+                    <ComboBoxItem Content="Igbo" />
                     <ComboBoxItem Content="Indonesian" />
+                    <ComboBoxItem Content="Irish" />
                     <ComboBoxItem Content="Italian" />
                     <ComboBoxItem Content="Japanese" />
+                    <ComboBoxItem Content="Kazakh" />
+                    <ComboBoxItem Content="Korean" />
                     <ComboBoxItem Content="Kurdish" />
+                    <ComboBoxItem Content="Kyrgyz" />
+                    <ComboBoxItem Content="Lao" />
+                    <ComboBoxItem Content="Latvian" />
+                    <ComboBoxItem Content="Lithuanian" />
+                    <ComboBoxItem Content="Malay" />
+                    <ComboBoxItem Content="Maori" />
+                    <ComboBoxItem Content="Norwegian" />
+                    <ComboBoxItem Content="Pashto" />
                     <ComboBoxItem Content="Persian" />
+                    <ComboBoxItem Content="Polish" />
                     <ComboBoxItem Content="Portuguese" />
                     <ComboBoxItem Content="Romanian" />
                     <ComboBoxItem Content="Russian" />
                     <ComboBoxItem Content="Serbian" />
+                    <ComboBoxItem Content="Slovak" />
+                    <ComboBoxItem Content="Slovenian" />
                     <ComboBoxItem Content="Spanish" />
                     <ComboBoxItem Content="Swedish" />
+                    <ComboBoxItem Content="Tajik" />
+                    <ComboBoxItem Content="Telugu" />
+                    <ComboBoxItem Content="Thai" />
                     <ComboBoxItem Content="Turkish" />
+                    <ComboBoxItem Content="Ukranian" />
                     <ComboBoxItem Content="Urdu" />
+                    <ComboBoxItem Content="Uzbek" />
                     <ComboBoxItem Content="Vietnamese" />
+                    <ComboBoxItem Content="Zulu" />
+
                 </ComboBox>
             </StackPanel>
+
+
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <StackPanel Width="800"
@@ -100,6 +140,7 @@
                     </StackPanel.Resources>
 
                 </StackPanel>
+
                 <StackPanel Orientation="Horizontal">
 
                     <Grid Width="{Binding Width, ElementName=stckPanel1}"
@@ -122,6 +163,7 @@
                                         x:Name="borderOfWriteBox">
                                     <TextBox x:Name="tboxWrite"
                                              Height="50"
+                                             Loaded="tboxWrite_Loaded"
                                              Width="300"
                                              VerticalContentAlignment="Center"
                                              FontSize="25"

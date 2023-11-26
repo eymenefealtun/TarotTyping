@@ -1,20 +1,21 @@
-﻿using System;
+﻿using LexiExtract;
 using System.Collections.Generic;
-using System.Linq;
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
-using TarotType.Main.Settings;
-using TarotType.Main.Utilities;
-using TarotType.Main.Utilities.Words.English;
-using TarotType.Main.View;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Linq;
+
 
 namespace TarotType.Main
 {
     public partial class MainWindow : Window
     {
+        string _darkTheme = "#1e1e1e";
+        string _lightTheme = "#f0ece4";
+        BrushConverter _brushConverter;
         List<Label> _words1;
         List<Label> _words2;
         DispatcherTimer _dispatcherTimer;
@@ -41,6 +42,20 @@ namespace TarotType.Main
             }
         }
 
+        List<string> _rightHandedLanguages = new List<string>
+        {
+            "Arabic",
+            "Aramaic",
+            "Azeri",
+            "Divehi",
+            "Fula",
+            "Hebrew",
+            "Persian",
+            "Rohingya",
+            "Syriac",
+            "Urdu",
+            "Pashto"
+        };
 
         int _numberOfWordsInEachCall = 20;
 
@@ -59,13 +74,15 @@ namespace TarotType.Main
         public static string[] _secondSourceWords;
         public static string[] _resultWordArray;
         public static Random _random;
+        string _currentLanguage;
+        List<Language> _languages;
+        string _initialLanguge = "English";
 
-        string _lightThemeCode = "#eeeee4";
-        string _darkThemeCode = "#1e1e1e";
 
         public MainWindow()
         {
             InitializeComponent();
+            _brushConverter = new BrushConverter();
 
             _random = new Random();
 
@@ -73,50 +90,32 @@ namespace TarotType.Main
             _words2 = new List<Label>();
 
 
-
-            WordManager wordManager = new WordManager(_numberOfWordsInEachCall);
-            SourceManager sourceManager = new SourceManager();
-
-
-
             _dispatcherTimer = new DispatcherTimer();
             _dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             _dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
 
+            _languages = typeof(Language).Assembly.GetTypes().Where(t => t.IsSubclassOf(typeof(Language))).Select(t => (Language)Activator.CreateInstance(t)).ToList();
 
-            //_second = 60;
-
-            SourceManager.CurrentLanguage = new English();
-            Preferences.CurrentTheme = _lightThemeCode;
-
-            string initialLanguageName = nameof(English);
 
             _anotherArray = true;
-            Preferences.LanguageName = initialLanguageName;
-            cBoxLanguages.SelectedValue = initialLanguageName;
-
-            //_sourceWords = SourceManager.GetLanguageArray(SourceManager.CurrentLanguage);
-            //SetCurrentLanguageArray();
 
             _resultWordArray = new string[_numberOfWordsInEachCall];
 
-            if (SourceManager.CurrentLanguage.FlowDirection() == SourceManager.flowDirections.right)
-            {
-                tboxWrite.FlowDirection = FlowDirection.RightToLeft;
-                stckPanel1.FlowDirection = FlowDirection.RightToLeft;
-                stckPanel1.FlowDirection = FlowDirection.RightToLeft;
-            }
-
-            RefreshGame();
         }
 
-        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        private void tboxWrite_Loaded(object sender, RoutedEventArgs e)
         {
-            IsRefreshing = true;
-            RefreshGame();
+            Mouse.OverrideCursor = Cursors.Wait;
+            btnRefresh.IsHitTestVisible = false;
+            tboxWrite.IsReadOnly = true;
+            cBoxLanguages.IsHitTestVisible = false;
+            btnTheme.IsHitTestVisible = false;
+            cBoxLanguages.SelectedValue = _initialLanguge; // fires a selection changed event 
+
+            Mouse.OverrideCursor = null;
         }
 
-        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        private void dispatcherTimer_Tick(object? sender, EventArgs e)
         {
             Second--;
 
@@ -129,6 +128,11 @@ namespace TarotType.Main
 
                 RefreshGame();
             }
+        }
+
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshGame();
         }
 
         private void tboxWrite_TextChanged(object sender, TextChangedEventArgs e)
@@ -161,10 +165,9 @@ namespace TarotType.Main
             }
             else
                 CurrentTextFalse(_words1[_currentWord1Index]);
-
         }
 
-        private void tboxWrite_PreviewKeyDown(object sender, KeyEventArgs e) //when text of tboxWrite changed PreviewKeyDown event get fires first
+        private void tboxWrite_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             _targetText = _words1[_currentWord1Index].Content.ToString();
             if (e.Key == Key.Escape)
@@ -194,6 +197,106 @@ namespace TarotType.Main
             else
                 _isTextBoxChangedCanFire = true;
         }
+
+
+
+        private async void cBoxLanguages_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Mouse.OverrideCursor = Cursors.Wait;
+
+            _currentLanguage = cBoxLanguages.SelectedValue.ToString();
+
+            _sourceWords = await _languages.Where(x => x.GetType().Name == _currentLanguage).First().GetAllWordsAsync();
+
+
+            FlowDirection flowDirection = _rightHandedLanguages.Contains(_currentLanguage) ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
+
+            tboxWrite.FlowDirection = flowDirection;
+            stckPanel1.FlowDirection = flowDirection;
+            stckPanel2.FlowDirection = flowDirection;
+
+
+            Mouse.OverrideCursor = null;
+            RefreshGame();
+
+        }
+
+        private void btnTheme_Click(object sender, RoutedEventArgs e)
+        {
+            this.Background = btnTheme.IsChecked == true ? (SolidColorBrush)_brushConverter.ConvertFrom(_lightTheme) : (SolidColorBrush)_brushConverter.ConvertFrom(_darkTheme);
+        }
+
+
+        private void RefreshGame()
+        {
+            tboxWrite.Focus();
+
+
+            _dispatcherTimer.Stop();
+            lblTimer.Content = "60";
+            _second = 60;
+
+            _numberOfTrueWords = 0;
+            _numberOfWrongWords = 0;
+            _currentWord1Index = 0;
+            _numberOfKeyStroke = 0;
+            _numberOfTrueKeyStroke = 0;
+            _numberOfFalseKeyStroke = 0;
+
+            _isTextBoxChangedCanFire = true;
+            _isStartedBefore = false;
+
+            _targetText = string.Empty;
+            _currentTextOfTextBox = string.Empty;
+            tboxWrite.Text = string.Empty;
+
+
+            RefreshStack(stckPanel1, _words1);
+            RefreshStack(stckPanel2, _words2);
+
+            btnRefresh.IsHitTestVisible = true;
+            tboxWrite.IsReadOnly = false;
+            btnTheme.IsHitTestVisible = true;
+            cBoxLanguages.IsHitTestVisible = true;
+
+        }
+
+        private void RefreshStack(StackPanel panel, List<Label> labels)
+        {
+            panel.Children.Clear();
+            labels.Clear();
+
+            _resultWordArray = _sourceWords.GetRandomWords(40);
+
+            int currentLength = 10;
+
+
+
+            for (int i = 0; i < _resultWordArray.Length; i++)
+            {
+                Label lbl = new Label();
+                lbl.Background = i == 0 && labels == _words1 ? Brushes.LightGray : Brushes.Transparent; //First word set to Light Gray
+                lbl.Content = _resultWordArray[i];
+                lbl.Style = (Style)FindResource("MainTextBlockTheme");
+                //Calculations in order not to break the size limit of stack panel.
+
+                lbl.Measure(new Size(Double.PositiveInfinity, Double.PositiveInfinity));
+                lbl.Arrange(new Rect(lbl.DesiredSize));
+
+                currentLength += (Convert.ToInt32(lbl.ActualWidth) + (int)lbl.Margin.Left);
+
+                //If total length of the words exceeds the limit we break.
+
+                if (currentLength > stckPanel1.Width)
+                    break;
+
+                labels.Add(lbl);
+                panel.Children.Insert(i, lbl);
+            }
+
+        }
+
+
 
         private void MarkedAsCorrect(Label lbl, Label nextLabel)
         {
@@ -246,128 +349,6 @@ namespace TarotType.Main
             RefreshStack(stckPanel2, _words2);
         }
 
-        private void RefreshGame()
-        {
-            tboxWrite.Focus();
-
-
-            _dispatcherTimer.Stop();
-            lblTimer.Content = "60";
-            _second = 60;
-
-            _numberOfTrueWords = 0;
-            _numberOfWrongWords = 0;
-            _currentWord1Index = 0;
-            _numberOfKeyStroke = 0;
-            _numberOfTrueKeyStroke = 0;
-            _numberOfFalseKeyStroke = 0;
-
-            _isTextBoxChangedCanFire = true;
-            _isStartedBefore = false;
-
-            _targetText = string.Empty;
-            _currentTextOfTextBox = string.Empty;
-            tboxWrite.Text = string.Empty;
-
-
-            RefreshStack(stckPanel1, _words1);
-            RefreshStack(stckPanel2, _words2);
-
-        }
-
-        private void RefreshStack(StackPanel panel, List<Label> labels)
-        {
-            panel.Children.Clear();
-            labels.Clear();
-
-            _resultWordArray = WordManager.GetRandomWord();
-
-            int currentLength = 10;
-
-
-
-            for (int i = 0; i < _resultWordArray.Length; i++)
-            {
-                Label lbl = new Label();
-                lbl.Background = i == 0 && labels == _words1 ? Brushes.LightGray : Brushes.Transparent; //First word set to Light Gray
-                lbl.Content = _resultWordArray[i];
-                lbl.Style = (Style)FindResource("MainTextBlockTheme");
-                //Calculations in order not to break the size limit of stack panel.
-
-                lbl.Measure(new Size(Double.PositiveInfinity, Double.PositiveInfinity));
-                lbl.Arrange(new Rect(lbl.DesiredSize));
-
-                currentLength += (Convert.ToInt32(lbl.ActualWidth) + (int)lbl.Margin.Left);
-
-                //If total length of the words exceeds the limit we break.
-
-                if (currentLength > stckPanel1.Width)
-                    break;
-
-                labels.Add(lbl);
-                panel.Children.Insert(i, lbl);
-            }
-            panel.FlowDirection = SourceManager.CurrentLanguage.FlowDirection() == SourceManager.flowDirections.right ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
-        }
-
-        private void btnTheme_Click(object sender, RoutedEventArgs e)
-        {
-            Preferences.CurrentTheme = btnTheme.IsChecked == false ? _darkThemeCode : _lightThemeCode;
-            SettingsChanged(Preferences.CurrentTheme, cBoxLanguages.SelectedValue.ToString());
-        }
-
-
-        private void SetCurrentLanguageArray()
-        {
-            if (_anotherArray == true)
-            {
-                _sourceWords = SourceManager.GetLanguageArray(SourceManager.CurrentLanguage);
-                _secondSourceWords = null;
-                _anotherArray = false;
-            }
-            else
-            {
-                _secondSourceWords = SourceManager.GetLanguageArray(SourceManager.CurrentLanguage);
-                _sourceWords = null;
-                _anotherArray = true;
-            }
-
-        }
-        private void cBoxLanguages_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-            SettingsChanged(Preferences.CurrentTheme, cBoxLanguages.SelectedValue.ToString());
-
-            Mouse.OverrideCursor = Cursors.Wait;
-
-            SetCurrentLanguageArray();
-
-            FlowDirection flowDirection = SourceManager.CurrentLanguage.FlowDirection() == SourceManager.flowDirections.right ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
-
-            tboxWrite.FlowDirection = flowDirection;
-            stckPanel1.FlowDirection = flowDirection;
-            stckPanel1.FlowDirection = flowDirection;
-
-            RefreshGame();
-
-            Mouse.OverrideCursor = null;
-        }
-
-        private void SettingsChanged(string themeCode, string languageName)
-        {
-            if (_canSettignsChange == false)
-            {
-                _canSettignsChange = true;
-                return;
-            }
-
-            Preferences.CurrentTheme = themeCode;
-            Preferences.LanguageName = languageName;
-            //SourceManager.CurrentLanguage = SourceManager._languageDictionary.FirstOrDefault(x => x.Value.ToString() == Preferences.LanguageName).Key;
-            SourceManager.CurrentLanguage = SourceManager._languageDictionary.FirstOrDefault(x => x.Value.ToString() == Preferences.LanguageName).Key;
-            this.Background = (SolidColorBrush)new BrushConverter().ConvertFrom(Preferences.CurrentTheme);
-
-        }
 
     }
 
