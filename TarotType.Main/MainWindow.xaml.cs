@@ -64,14 +64,11 @@ namespace TarotType.Main
 
         bool _isTextBoxChangedCanFire;
         bool _isStartedBefore;
-        bool _canComboBoxChangedFired = false;
-        bool _canSettignsChange = false;
         public bool IsRefreshing = false;
         public static bool _anotherArray = true;
 
 
         public static string[] _sourceWords;
-        public static string[] _secondSourceWords;
         public static string[] _resultWordArray;
         public static Random _random;
         string _currentLanguage;
