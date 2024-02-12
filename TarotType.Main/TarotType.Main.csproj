@@ -24,7 +24,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="LexiExtract" Version="3.0.0" />
+		<PackageReference Include="LexiExtract" Version="4.0.0" />
 		<PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
 	</ItemGroup>
 

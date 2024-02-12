@@ -214,6 +214,7 @@ namespace TarotType.Main
 
 
             Mouse.OverrideCursor = null;
+
             RefreshGame();
 
         }
